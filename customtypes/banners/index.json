@@ -1,0 +1,49 @@
+{
+  "format": "custom",
+  "id": "banners",
+  "label": "Banners",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "items": {
+        "type": "Group",
+        "config": {
+          "label": "Items",
+          "repeat": true,
+          "fields": {
+            "banner_desktop": {
+              "type": "Image",
+              "config": {
+                "label": "Banner Desktop",
+                "constraint": {
+                  "width": 1400,
+                  "height": 700
+                },
+                "thumbnails": []
+              }
+            },
+            "banner_mobile": {
+              "type": "Image",
+              "config": {
+                "label": "Banner Mobile",
+                "constraint": {
+                  "width": 580,
+                  "height": 846
+                },
+                "thumbnails": []
+              }
+            },
+            "link": {
+              "type": "Text",
+              "config": {
+                "label": "Link",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
