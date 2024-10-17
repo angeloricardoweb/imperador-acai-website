@@ -2,12 +2,16 @@ import Footer from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { MenuHamburguer } from '@/components/Partials/MenuHamburguer'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import 'swiper/css/bundle'
 import '../styles/index.scss'
 import DialogPrivacityPolicy from '@/components/Dialogs/DialogPrivacityPolicy'
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({
+  fallback: ['sans-serif'],
+  weight: ['500', '600', '700'],
+  subsets: ['latin'],
+})
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
@@ -54,7 +58,7 @@ export default function RootLayout({
         />
         <meta name="google" content="notranslate" />
       </head>
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <Header />
         {children}

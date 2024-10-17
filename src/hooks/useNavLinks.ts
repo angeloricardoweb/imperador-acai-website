@@ -10,35 +10,24 @@ export default function useNavLinks() {
       name: stringData(langData.Home),
     },
     {
-      route: '/sobre-nos',
+      route: '/quem-somos',
       name: stringData(langData.About),
+    },
+    {
+      route: '/produtos',
+      name: stringData(langData.Products),
+    },
+    {
+      route: '/certificacoes',
+      name: stringData(langData.Certifications),
     },
     {
       route: '/blog',
       name: stringData(langData.Blog),
     },
     {
-      route: '/contatos',
-      name: stringData(langData.Contact),
-    },
-    {
-      route: '/servicos',
-      name: stringData(langData.Services),
-      dinamic_submenu_document_type: 'servico', // your document needs to have a field called "titulo"
-    },
-    {
-      route: '/submenu',
-      name: stringData(langData.Submenu),
-      submenu: [
-        {
-          label: 'Submenu 1',
-          href: '/submenu/submenu1',
-        },
-        {
-          label: 'Submenu 2',
-          href: '/submenu/submenu2',
-        },
-      ],
+      route: '/fale-conosco',
+      name: stringData(langData.ContactUs),
     },
   ]
 

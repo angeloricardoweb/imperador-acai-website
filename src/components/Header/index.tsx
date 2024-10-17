@@ -1,5 +1,4 @@
 'use client'
-import TopBar from './TopBar'
 import NavLinks from './NavLinks'
 import { useWindowScroll } from 'react-use'
 import Link from 'next/link'
@@ -7,7 +6,6 @@ import { Container } from '../Partials/Container'
 import useMenuHamburguerStore from '../../stores/useMenuHamburguerStore'
 import { useEffect } from 'react'
 import Icon from '../Adapters/Icon'
-import SearchForm from '../Forms/SearchForm'
 import { usePrismicLangs } from '@/hooks/usePrismicLangs'
 import { useCookies } from '@/stores/useCookies'
 
@@ -30,10 +28,10 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 w-full shadow-xl backdrop-blur transition-all ${
-        y > 0 ? 'bg-black/70' : 'bg-black'
+        y > 0 ? 'bg-white/70' : 'bg-white'
       } `}
     >
-      <TopBar />
+      {/* <TopBar /> */}
       <Container>
         <div className="flex items-center justify-between">
           <Link href="/">
@@ -44,14 +42,13 @@ export function Header() {
               style={{ height: y > 0 ? '3rem' : '4rem' }}
             />
           </Link>
-          <SearchForm />
           <div className="hidden items-center gap-3 md:flex">
             <NavLinks />
             {availableLangs &&
               availableLangs.length > 1 &&
               availableLangs?.map((lang) => (
                 <span
-                  className="text-white text-sm cursor-pointer hover:opacity-70 uppercase"
+                  className="text-sm cursor-pointer hover:opacity-70 uppercase"
                   key={lang.id}
                   onClick={() => addLangCookie(lang.id)}
                   title={lang.name}

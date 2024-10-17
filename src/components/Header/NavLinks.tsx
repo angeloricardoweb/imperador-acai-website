@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import Icon from '../Adapters/Icon'
 import { useSelectedLayoutSegment } from 'next/navigation'
-import { DropdownHover } from './DropdownHover'
 import useNavLinks from '@/hooks/useNavLinks'
 
 export default function NavLinks() {
@@ -12,31 +11,10 @@ export default function NavLinks() {
   return (
     <>
       {navLinks?.map((link) => {
-        if (link.dinamic_submenu_document_type) {
-          return (
-            <DropdownHover
-              key={link.name}
-              mainRoute={link.route}
-              title={link.name}
-              links={link.submenu}
-              dinamicSubmenuDocumentType={link.dinamic_submenu_document_type}
-            />
-          )
-        }
-        if (link.submenu) {
-          return (
-            <DropdownHover
-              key={link.name}
-              mainRoute={link.route}
-              title={link.name}
-              links={link.submenu}
-            />
-          )
-        }
         return (
           <Link key={link.name} href={link.route}>
             <span
-              className={`${segment === link.route.replace('/', '') ? 'font-bold' : 'font-normal'} cursor-pointer text-white hover:opacity-70`}
+              className={`${segment === link.route.replace('/', '') ? 'font-bold' : 'font-normal'} cursor-pointer hover:opacity-70`}
               suppressHydrationWarning
             >
               {link.name}
