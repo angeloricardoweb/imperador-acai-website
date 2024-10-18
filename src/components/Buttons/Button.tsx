@@ -4,7 +4,7 @@ import { LoaderCircle } from 'lucide-react'
 
 type Props = {
   children: React.ReactNode
-  variant: 'primaryGreen' | 'outlinedBlack'
+  variant: 'primaryGreen' | 'outlinedWhite'
   color?: string
   disabled?: boolean
   onClick?: any
@@ -23,11 +23,11 @@ export function Button({
   isLoading = false,
 }: Props) {
   const primaryGreen = 'bg-brand-green text-white'
-  const outlinedBlack = 'bg-transparent border border-black text-black'
+  const outlinedWhite = 'bg-transparent border border-white text-white'
 
   return (
     <button
-      className={`flex items-center justify-center gap-2 rounded-md px-4 py-2 transition-all hover:opacity-75 disabled:opacity-50 ${variant === 'primaryGreen' && primaryGreen} ${variant === 'outlinedBlack' && outlinedBlack} ${full ? 'w-full' : 'w-fit'} `}
+      className={`flex items-center justify-center gap-2 rounded-md px-4 py-2 transition-all hover:opacity-75 disabled:opacity-50 ${variant === 'primaryGreen' && primaryGreen} ${variant === 'outlinedWhite' && outlinedWhite} ${full ? 'w-full' : 'w-fit'} `}
       onClick={onClick}
       disabled={disabled}
       type={type}

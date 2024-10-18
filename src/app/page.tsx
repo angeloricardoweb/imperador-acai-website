@@ -2,6 +2,9 @@ import SwiperHero from '@/components/Swipers/SwiperHero'
 import SectionFaq from '@/components/Sections/SectionFaq'
 import { Metadata } from 'next'
 import { getHeroBanners } from '@/services/prismicData/getHeroBanners'
+import SectionAboutUs from '@/components/Sections/SectionAboutUs'
+import SectionProducts from '@/components/Sections/SectionProducts'
+import SectionBenefits from '@/components/Sections/SectionBenefits'
 // import { SectionInstagram } from '@/components/Sections/SectionInstagram'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -22,6 +25,9 @@ export default async function Home() {
     <main>
       {banners && <SwiperHero banners={banners.data} />}
       <div>
+        <SectionAboutUs />
+        <SectionProducts />
+        <SectionBenefits />
         <SectionFaq />
         {/* <SectionInstagram /> */}
       </div>

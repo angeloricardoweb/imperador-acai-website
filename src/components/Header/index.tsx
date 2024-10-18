@@ -39,7 +39,7 @@ export function Header() {
               src="/img/logo.png"
               alt=""
               className="cursor-pointer py-3 transition-all"
-              style={{ height: y > 0 ? '3rem' : '4rem' }}
+              style={{ height: y > 0 ? '4rem' : '5rem' }}
             />
           </Link>
           <div className="hidden items-center gap-3 md:flex">

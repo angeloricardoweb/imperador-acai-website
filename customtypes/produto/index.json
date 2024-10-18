@@ -1,0 +1,88 @@
+{
+  "format": "page",
+  "id": "produto",
+  "label": "Produto",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "nome": {
+        "type": "Text",
+        "config": {
+          "label": "Nome",
+          "placeholder": ""
+        }
+      },
+      "imagem": {
+        "type": "Image",
+        "config": {
+          "label": "Imagem",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "categoria": {
+        "type": "Text",
+        "config": {
+          "label": "Categoria",
+          "placeholder": ""
+        }
+      },
+      "descricao": {
+        "type": "Text",
+        "config": {
+          "label": "Descrição",
+          "placeholder": ""
+        }
+      },
+      "disponibilidade": {
+        "type": "Text",
+        "config": {
+          "label": "Disponibilidade",
+          "placeholder": ""
+        }
+      },
+      "uid": {
+        "config": {
+          "label": "UID",
+          "placeholder": "Slug do produto"
+        },
+        "type": "UID"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

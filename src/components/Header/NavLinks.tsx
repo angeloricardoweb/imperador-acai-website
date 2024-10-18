@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Icon from '../Adapters/Icon'
 import { useSelectedLayoutSegment } from 'next/navigation'
 import useNavLinks from '@/hooks/useNavLinks'
+import { Facebook, Instagram } from 'lucide-react'
 
 export default function NavLinks() {
   const segment = useSelectedLayoutSegment()
@@ -10,23 +11,25 @@ export default function NavLinks() {
 
   return (
     <>
-      {navLinks?.map((link) => {
-        return (
-          <Link key={link.name} href={link.route}>
-            <span
-              className={`${segment === link.route.replace('/', '') ? 'font-bold' : 'font-normal'} cursor-pointer hover:opacity-70`}
-              suppressHydrationWarning
-            >
-              {link.name}
-            </span>
-          </Link>
-        )
-      })}
+      <div className="flex gap-6">
+        {navLinks?.map((link) => {
+          return (
+            <Link key={link.name} href={link.route}>
+              <span
+                className={`${segment === link.route.replace('/', '') ? 'font-bold' : 'font-normal'} cursor-pointer hover:opacity-70`}
+                suppressHydrationWarning
+              >
+                {link.name}
+              </span>
+            </Link>
+          )
+        })}
+      </div>
       <a href="/" rel="noreferrer" target="_blank">
-        <Icon icon="mdi:facebook" className="text-white" />
+        <Facebook className="text-brand-green" />
       </a>
       <a href="/" rel="noreferrer" target="_blank">
-        <Icon icon="mdi:instagram" className="text-white" />
+        <Instagram className="text-brand-green" />
       </a>
     </>
   )

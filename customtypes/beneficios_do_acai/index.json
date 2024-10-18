@@ -1,0 +1,48 @@
+{
+  "format": "custom",
+  "id": "beneficios_do_acai",
+  "label": "Benefícios do açaí",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "titulo_da_secao": {
+        "type": "Text",
+        "config": {
+          "label": "Título da seção",
+          "placeholder": ""
+        }
+      },
+      "descricao_da_secao": {
+        "type": "Text",
+        "config": {
+          "label": "Descrição da seção",
+          "placeholder": ""
+        }
+      },
+      "beneficios": {
+        "type": "Group",
+        "config": {
+          "label": "Benefícios",
+          "repeat": true,
+          "fields": {
+            "titulo": {
+              "type": "Text",
+              "config": {
+                "label": "Título",
+                "placeholder": ""
+              }
+            },
+            "descricao": {
+              "type": "Text",
+              "config": {
+                "label": "Descrição",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

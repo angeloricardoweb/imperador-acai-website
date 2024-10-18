@@ -72,6 +72,87 @@ export type BannersDocument<Lang extends string = string> =
   >
 
 /**
+ * Item in *Benefícios do açaí → Benefícios*
+ */
+export interface BeneficiosDoAcaiDocumentDataBeneficiosItem {
+  /**
+   * Título field in *Benefícios do açaí → Benefícios*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: beneficios_do_acai.beneficios[].titulo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField
+
+  /**
+   * Descrição field in *Benefícios do açaí → Benefícios*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: beneficios_do_acai.beneficios[].descricao
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  descricao: prismic.KeyTextField
+}
+
+/**
+ * Content for Benefícios do açaí documents
+ */
+interface BeneficiosDoAcaiDocumentData {
+  /**
+   * Título da seção field in *Benefícios do açaí*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: beneficios_do_acai.titulo_da_secao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo_da_secao: prismic.KeyTextField
+
+  /**
+   * Descrição da seção field in *Benefícios do açaí*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: beneficios_do_acai.descricao_da_secao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  descricao_da_secao: prismic.KeyTextField
+
+  /**
+   * Benefícios field in *Benefícios do açaí*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: beneficios_do_acai.beneficios[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  beneficios: prismic.GroupField<
+    Simplify<BeneficiosDoAcaiDocumentDataBeneficiosItem>
+  >
+}
+
+/**
+ * Benefícios do açaí document from Prismic
+ *
+ * - **API ID**: `beneficios_do_acai`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BeneficiosDoAcaiDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BeneficiosDoAcaiDocumentData>,
+    'beneficios_do_acai',
+    Lang
+  >
+
+/**
  * Content for Dados e Redes Sociais documents
  */
 interface DadosERedesSociaisDocumentData {
@@ -361,6 +442,122 @@ interface PostDocumentData {
 export type PostDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PostDocumentData>, 'post', Lang>
 
+type ProdutoDocumentDataSlicesSlice = never
+
+/**
+ * Content for Produto documents
+ */
+interface ProdutoDocumentData {
+  /**
+   * Nome field in *Produto*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: produto.nome
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nome: prismic.KeyTextField
+
+  /**
+   * Imagem field in *Produto*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: produto.imagem
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  imagem: prismic.ImageField<never>
+
+  /**
+   * Categoria field in *Produto*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: produto.categoria
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  categoria: prismic.KeyTextField
+
+  /**
+   * Descrição field in *Produto*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: produto.descricao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  descricao: prismic.KeyTextField
+
+  /**
+   * Disponibilidade field in *Produto*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: produto.disponibilidade
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  disponibilidade: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *Produto*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: produto.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProdutoDocumentDataSlicesSlice> /**
+   * Meta Description field in *Produto*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: produto.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Produto*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: produto.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Produto*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: produto.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Produto document from Prismic
+ *
+ * - **API ID**: `produto`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProdutoDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<ProdutoDocumentData>, 'produto', Lang>
+
 /**
  * Content for Quem somos documents
  */
@@ -445,10 +642,12 @@ export type ServicoDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | BannersDocument
+  | BeneficiosDoAcaiDocument
   | DadosERedesSociaisDocument
   | DepoimentosDocument
   | FaqDocument
   | PostDocument
+  | ProdutoDocument
   | QuemSomosDocument
   | ServicoDocument
 
@@ -465,6 +664,9 @@ declare module '@prismicio/client' {
       BannersDocument,
       BannersDocumentData,
       BannersDocumentDataItemsItem,
+      BeneficiosDoAcaiDocument,
+      BeneficiosDoAcaiDocumentData,
+      BeneficiosDoAcaiDocumentDataBeneficiosItem,
       DadosERedesSociaisDocument,
       DadosERedesSociaisDocumentData,
       DepoimentosDocument,
@@ -475,6 +677,9 @@ declare module '@prismicio/client' {
       FaqDocumentDataItemsItem,
       PostDocument,
       PostDocumentData,
+      ProdutoDocument,
+      ProdutoDocumentData,
+      ProdutoDocumentDataSlicesSlice,
       QuemSomosDocument,
       QuemSomosDocumentData,
       ServicoDocument,
