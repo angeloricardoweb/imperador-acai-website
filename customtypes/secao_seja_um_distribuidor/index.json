@@ -1,0 +1,25 @@
+{
+  "format": "custom",
+  "id": "secao_seja_um_distribuidor",
+  "label": "Seção Seja um Distribuidor",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "titulo": {
+        "type": "Text",
+        "config": {
+          "label": "Título",
+          "placeholder": ""
+        }
+      },
+      "descricao": {
+        "type": "Text",
+        "config": {
+          "label": "Descrição",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

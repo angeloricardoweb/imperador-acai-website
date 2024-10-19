@@ -33,10 +33,12 @@ export default function SwiperProducts({
               href={`/produtos/${product.uid}`}
               className="hover:scale-95 transition-all"
             >
-              <img
-                src={product?.data.imagem.url as string}
-                alt={product.data.nome as string}
-              />
+              <div className="h-60 overflow-hidden flex items-center">
+                <img
+                  src={product?.data.imagem.url as string}
+                  alt={product.data.nome as string}
+                />
+              </div>
               <div className="w-80">
                 <h3 className="font-bold text-white text-center text-4xl">
                   {product.data.nome}

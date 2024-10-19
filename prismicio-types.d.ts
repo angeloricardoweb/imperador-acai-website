@@ -153,6 +153,118 @@ export type BeneficiosDoAcaiDocument<Lang extends string = string> =
   >
 
 /**
+ * Item in *Certificações → Itens*
+ */
+export interface CertificacoesDocumentDataItensItem {
+  /**
+   * Certificação field in *Certificações → Itens*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: certificacoes.itens[].certificacao
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  certificacao: prismic.ImageField<never>
+}
+
+/**
+ * Content for Certificações documents
+ */
+interface CertificacoesDocumentData {
+  /**
+   * Título field in *Certificações*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: certificacoes.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField
+
+  /**
+   * Itens field in *Certificações*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: certificacoes.itens[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  itens: prismic.GroupField<Simplify<CertificacoesDocumentDataItensItem>>
+
+  /**
+   * Conteúdo field in *Certificações*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: certificacoes.conteudo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  conteudo: prismic.RichTextField
+}
+
+/**
+ * Certificações document from Prismic
+ *
+ * - **API ID**: `certificacoes`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CertificacoesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CertificacoesDocumentData>,
+    'certificacoes',
+    Lang
+  >
+
+/**
+ * Content for Compromisso Social documents
+ */
+interface CompromissoSocialDocumentData {
+  /**
+   * Título field in *Compromisso Social*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: compromisso_social.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField
+
+  /**
+   * Conteúdo field in *Compromisso Social*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: compromisso_social.conteudo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  conteudo: prismic.RichTextField
+}
+
+/**
+ * Compromisso Social document from Prismic
+ *
+ * - **API ID**: `compromisso_social`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CompromissoSocialDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CompromissoSocialDocumentData>,
+    'compromisso_social',
+    Lang
+  >
+
+/**
  * Content for Dados e Redes Sociais documents
  */
 interface DadosERedesSociaisDocumentData {
@@ -369,6 +481,82 @@ interface FaqDocumentData {
  */
 export type FaqDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<FaqDocumentData>, 'faq', Lang>
+
+/**
+ * Content for Página Quem Somos documents
+ */
+interface PaginaQuemSomosDocumentData {
+  /**
+   * Título field in *Página Quem Somos*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pagina_quem_somos.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField
+
+  /**
+   * Conteúdo field in *Página Quem Somos*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pagina_quem_somos.conteudo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  conteudo: prismic.RichTextField
+
+  /**
+   * Missão field in *Página Quem Somos*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pagina_quem_somos.missao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  missao: prismic.KeyTextField
+
+  /**
+   * Visão field in *Página Quem Somos*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pagina_quem_somos.visao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  visao: prismic.KeyTextField
+
+  /**
+   * Valores field in *Página Quem Somos*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pagina_quem_somos.valores
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  valores: prismic.KeyTextField
+}
+
+/**
+ * Página Quem Somos document from Prismic
+ *
+ * - **API ID**: `pagina_quem_somos`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PaginaQuemSomosDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<PaginaQuemSomosDocumentData>,
+    'pagina_quem_somos',
+    Lang
+  >
 
 /**
  * Content for Post documents
@@ -602,6 +790,49 @@ export type QuemSomosDocument<Lang extends string = string> =
   >
 
 /**
+ * Content for Seção Seja um Distribuidor documents
+ */
+interface SecaoSejaUmDistribuidorDocumentData {
+  /**
+   * Título field in *Seção Seja um Distribuidor*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: secao_seja_um_distribuidor.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField
+
+  /**
+   * Descrição field in *Seção Seja um Distribuidor*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: secao_seja_um_distribuidor.descricao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  descricao: prismic.KeyTextField
+}
+
+/**
+ * Seção Seja um Distribuidor document from Prismic
+ *
+ * - **API ID**: `secao_seja_um_distribuidor`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SecaoSejaUmDistribuidorDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SecaoSejaUmDistribuidorDocumentData>,
+    'secao_seja_um_distribuidor',
+    Lang
+  >
+
+/**
  * Content for Serviço documents
  */
 interface ServicoDocumentData {
@@ -640,16 +871,64 @@ interface ServicoDocumentData {
 export type ServicoDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<ServicoDocumentData>, 'servico', Lang>
 
+/**
+ * Content for Sustentabilidade documents
+ */
+interface SustentabilidadeDocumentData {
+  /**
+   * Título field in *Sustentabilidade*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sustentabilidade.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField
+
+  /**
+   * Conteúdo field in *Sustentabilidade*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sustentabilidade.conteudo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  conteudo: prismic.RichTextField
+}
+
+/**
+ * Sustentabilidade document from Prismic
+ *
+ * - **API ID**: `sustentabilidade`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SustentabilidadeDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SustentabilidadeDocumentData>,
+    'sustentabilidade',
+    Lang
+  >
+
 export type AllDocumentTypes =
   | BannersDocument
   | BeneficiosDoAcaiDocument
+  | CertificacoesDocument
+  | CompromissoSocialDocument
   | DadosERedesSociaisDocument
   | DepoimentosDocument
   | FaqDocument
+  | PaginaQuemSomosDocument
   | PostDocument
   | ProdutoDocument
   | QuemSomosDocument
+  | SecaoSejaUmDistribuidorDocument
   | ServicoDocument
+  | SustentabilidadeDocument
 
 declare module '@prismicio/client' {
   interface CreateClient {
@@ -667,6 +946,11 @@ declare module '@prismicio/client' {
       BeneficiosDoAcaiDocument,
       BeneficiosDoAcaiDocumentData,
       BeneficiosDoAcaiDocumentDataBeneficiosItem,
+      CertificacoesDocument,
+      CertificacoesDocumentData,
+      CertificacoesDocumentDataItensItem,
+      CompromissoSocialDocument,
+      CompromissoSocialDocumentData,
       DadosERedesSociaisDocument,
       DadosERedesSociaisDocumentData,
       DepoimentosDocument,
@@ -675,6 +959,8 @@ declare module '@prismicio/client' {
       FaqDocument,
       FaqDocumentData,
       FaqDocumentDataItemsItem,
+      PaginaQuemSomosDocument,
+      PaginaQuemSomosDocumentData,
       PostDocument,
       PostDocumentData,
       ProdutoDocument,
@@ -682,8 +968,12 @@ declare module '@prismicio/client' {
       ProdutoDocumentDataSlicesSlice,
       QuemSomosDocument,
       QuemSomosDocumentData,
+      SecaoSejaUmDistribuidorDocument,
+      SecaoSejaUmDistribuidorDocumentData,
       ServicoDocument,
       ServicoDocumentData,
+      SustentabilidadeDocument,
+      SustentabilidadeDocumentData,
       AllDocumentTypes,
     }
   }

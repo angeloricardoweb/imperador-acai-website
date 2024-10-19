@@ -5,6 +5,8 @@ import { getHeroBanners } from '@/services/prismicData/getHeroBanners'
 import SectionAboutUs from '@/components/Sections/SectionAboutUs'
 import SectionProducts from '@/components/Sections/SectionProducts'
 import SectionBenefits from '@/components/Sections/SectionBenefits'
+import SectionSustentabilidade from '@/components/Sections/SectionSustentabilidade'
+import SectionPartner from '@/components/Sections/SectionPartner'
 // import { SectionInstagram } from '@/components/Sections/SectionInstagram'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -28,6 +30,8 @@ export default async function Home() {
         <SectionAboutUs />
         <SectionProducts />
         <SectionBenefits />
+        <SectionSustentabilidade />
+        <SectionPartner />
         <SectionFaq />
         {/* <SectionInstagram /> */}
       </div>

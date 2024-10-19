@@ -1,7 +1,7 @@
 import { PrismicRichText } from '@prismicio/react'
 import * as prismic from '@prismicio/client'
 
-export default function ContentRichText({
+export default function ContentRichTextWhite({
   data,
 }: {
   data: prismic.RichTextField | null | undefined
@@ -29,7 +29,7 @@ export default function ContentRichText({
           <h6 className="text-sm font-bold">{children}</h6>
         ),
         paragraph: ({ children }) => (
-          <p className="mb-3 text-base">{children}</p>
+          <p className="mb-3 text-base text-white">{children}</p>
         ),
         preformatted: ({ children }) => <pre>{children}</pre>,
         strong: ({ children }) => (
