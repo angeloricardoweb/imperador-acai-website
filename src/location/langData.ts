@@ -35,4 +35,8 @@ export const langData = {
     'en-us': 'Follow Us',
     'pt-br': 'Siga-nos',
   },
+  Testimonials: {
+    'en-us': 'Testimonials',
+    'pt-br': 'Depoimentos',
+  },
 }

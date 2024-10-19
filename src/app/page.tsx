@@ -7,6 +7,7 @@ import SectionProducts from '@/components/Sections/SectionProducts'
 import SectionBenefits from '@/components/Sections/SectionBenefits'
 import SectionSustentabilidade from '@/components/Sections/SectionSustentabilidade'
 import SectionPartner from '@/components/Sections/SectionPartner'
+import SectionTestimonials from '@/components/Sections/SectionTestimonials'
 // import { SectionInstagram } from '@/components/Sections/SectionInstagram'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -32,6 +33,7 @@ export default async function Home() {
         <SectionBenefits />
         <SectionSustentabilidade />
         <SectionPartner />
+        <SectionTestimonials />
         <SectionFaq />
         {/* <SectionInstagram /> */}
       </div>

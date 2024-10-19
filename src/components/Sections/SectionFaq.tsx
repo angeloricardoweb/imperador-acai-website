@@ -44,7 +44,7 @@ export default function SectionFaq() {
   }
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-zinc-100">
       <Container>
         <h2 className="text-center text-4xl font-bold">
           {stringData(langData.FrequentlyAskedQuestions)}
