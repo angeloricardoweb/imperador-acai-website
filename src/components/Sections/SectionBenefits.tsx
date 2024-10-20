@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container } from '../Partials/Container'
 import useSWR from 'swr'
 import { getBenefits } from '@/services/prismicData/getBenefits'
@@ -15,6 +15,12 @@ export default function SectionBenefits() {
   })
 
   const [benefitActive, setBenefitActive] = React.useState<any>({})
+
+  useEffect(() => {
+    if (benefits?.data.beneficios) {
+      setBenefitActive(benefits?.data.beneficios[0])
+    }
+  }, [benefits])
 
   if (error) return null
   if (isLoading)
