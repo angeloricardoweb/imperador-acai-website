@@ -39,4 +39,12 @@ export const langData = {
     'en-us': 'Testimonials',
     'pt-br': 'Depoimentos',
   },
+  Atendment: {
+    'en-us': 'Atendment',
+    'pt-br': 'Atendimento',
+  },
+  WorkWithUs: {
+    'en-us': 'Work With Us',
+    'pt-br': 'Trabalhe Conosco',
+  },
 }
