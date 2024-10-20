@@ -93,7 +93,7 @@ export default function Footer() {
               )
             })}
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 flex flex-col">
             <p className="font-bold text-white">
               {stringData(langData.Atendment)}
             </p>
@@ -104,7 +104,7 @@ export default function Footer() {
               <p className="text-white">{infos?.data.telefone}</p>
             )}
             <Link href="/fale-conosco">
-              <strong>{stringData(langData.WorkWithUs)} </strong>
+              <strong>{stringData(langData.WorkWithUs)}</strong>
             </Link>
             <Link href="/#faq">
               <strong>{stringData(langData.FrequentlyAskedQuestions)} </strong>

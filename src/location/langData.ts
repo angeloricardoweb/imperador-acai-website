@@ -47,4 +47,8 @@ export const langData = {
     'en-us': 'Work With Us',
     'pt-br': 'Trabalhe Conosco',
   },
+  AllRightsReserved: {
+    'en-us': 'All rights reserved',
+    'pt-br': 'Todos os direitos reservados',
+  },
 }

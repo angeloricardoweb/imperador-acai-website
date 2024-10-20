@@ -11,6 +11,8 @@ export default function SwiperHero({
   return (
     <Swiper
       pagination={true}
+      autoplay={{ delay: 5000 }}
+      effect="fade"
       modules={[Pagination]}
       className="aspect-[580/846] md:aspect-[2/1] h-auto"
     >
