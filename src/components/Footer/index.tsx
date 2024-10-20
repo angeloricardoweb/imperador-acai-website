@@ -85,7 +85,7 @@ export default function Footer() {
             }
           </div>
           <div className="flex flex-col gap-3">
-            {navLinks.map((link) => {
+            {navLinks.map((link: any) => {
               return (
                 <Link href={link.route} key={link.name}>
                   <strong>{link.name}</strong>
