@@ -4,7 +4,7 @@ import { langData } from '@/location/langData'
 export default function useNavLinks() {
   const { stringData } = useLang()
 
-  const navLinks = [
+  const navLinks: any = [
     {
       route: '/',
       name: stringData(langData.Home),

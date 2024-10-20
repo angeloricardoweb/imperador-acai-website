@@ -34,8 +34,8 @@ export function MenuHamburguer() {
         </div>
 
         <div className="py-20">
-          {navLinks.map((link) => {
-            if (link.submenu) {
+          {navLinks.map((link: any) => {
+            if (link?.submenu) {
               return (
                 <div
                   key={link.name}
@@ -46,7 +46,7 @@ export function MenuHamburguer() {
                     <ChevronDown size={20} className="mt-2 text-black/40" />
                   </div>
                   <div className="flex flex-col gap-2 px-5 py-1">
-                    {link.submenu.map((sublink, index) => (
+                    {link.submenu.map((sublink: any, index: any) => (
                       <div
                         key={sublink.label}
                         className={`cursor-pointer bg-white p-5 text-xl text-zinc-900 ${link.submenu.length - 1 === index ? '' : 'border-b'}`}
