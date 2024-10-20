@@ -1,6 +1,5 @@
 'use client'
 import Link from 'next/link'
-import Icon from '../Adapters/Icon'
 import { useSelectedLayoutSegment } from 'next/navigation'
 import useNavLinks from '@/hooks/useNavLinks'
 import { Facebook, Instagram } from 'lucide-react'
