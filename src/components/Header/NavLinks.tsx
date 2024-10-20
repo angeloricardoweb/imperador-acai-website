@@ -11,7 +11,7 @@ export default function NavLinks() {
   return (
     <>
       <div className="flex gap-6">
-        {navLinks?.map((link) => {
+        {navLinks?.map((link: any) => {
           return (
             <Link key={link.name} href={link.route}>
               <span
