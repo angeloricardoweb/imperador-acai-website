@@ -51,4 +51,8 @@ export const langData = {
     'en-us': 'All rights reserved',
     'pt-br': 'Todos os direitos reservados',
   },
+  AKingOfQuality: {
+    'en-us': 'A king of quality',
+    'pt-br': 'Um reinado de qualidade',
+  },
 }
