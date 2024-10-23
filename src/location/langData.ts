@@ -55,4 +55,16 @@ export const langData = {
     'en-us': 'A king of quality',
     'pt-br': 'Um reinado de qualidade',
   },
+  mission: {
+    'en-us': 'Mission',
+    'pt-br': 'Missão',
+  },
+  vision: {
+    'en-us': 'Vision',
+    'pt-br': 'Visão',
+  },
+  values: {
+    'en-us': 'Values',
+    'pt-br': 'Valores',
+  },
 }
