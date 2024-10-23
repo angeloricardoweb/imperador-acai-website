@@ -67,4 +67,24 @@ export const langData = {
     'en-us': 'Values',
     'pt-br': 'Valores',
   },
+  Questions: {
+    'en-us': 'Questions',
+    'pt-br': 'Dúvidas',
+  },
+  QuestionsDescription: {
+    'en-us':
+      'If you have any questions, see the frequently asked questions or contact us.',
+    'pt-br':
+      'Caso tenha alguma dúvida, veja as perguntas frequentes ou entre em contato conosco.',
+  },
+  BeARepresentative: {
+    'en-us': 'Be a representative',
+    'pt-br': 'Seja um revendedor',
+  },
+  BeARepresentativeDescription: {
+    'en-us':
+      'If you want to be a representative, contact us and we will explain how it works.',
+    'pt-br':
+      'Se você deseja ser um revendedor, entre em contato conosco que explicaremos como funciona.',
+  },
 }
