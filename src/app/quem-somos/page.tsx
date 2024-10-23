@@ -58,16 +58,16 @@ export default async function Page() {
           </div>
         </section>
       </Container>
-      <section className="bg-[url(/img/bg-barco.png)] bg-cover bg-center">
-        <Container>
-          <div className="py-20 max-w-2xl">
+      <Container>
+        <section className="bg-[url(/img/bg-barco.png)] bg-cover bg-center">
+          <div className="p-20 max-w-2xl">
             <h2 className="text-5xl font-bold text-white mb-5">
               {compromissoSocial.titulo}
             </h2>
             <ContentRichTextWhite data={compromissoSocial.conteudo} />
           </div>
-        </Container>
-      </section>
+        </section>
+      </Container>
     </main>
   )
 }
