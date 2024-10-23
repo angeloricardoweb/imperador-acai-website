@@ -1,9 +1,11 @@
 import Subheader from '@/components/Header/Subheader'
 import { Container } from '@/components/Partials/Container'
 import ContentRichText from '@/components/Prismic/ContentRichText'
+import ContentRichTextWhite from '@/components/Prismic/ContentRichTextWhite'
 import useLang from '@/hooks/useLang'
 import { langData } from '@/location/langData'
 import { getAboutUsPage } from '@/services/prismicData/getAboutUsPage'
+import { getSocialCommitment } from '@/services/prismicData/getSocialCommitment'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const { data } = await getAboutUsPage()
+  const { data: compromissoSocial } = await getSocialCommitment()
   const { stringData } = useLang()
 
   if (!data) return null
@@ -55,6 +58,16 @@ export default async function Page() {
           </div>
         </section>
       </Container>
+      <section className="bg-[url(/img/bg-barco.png)] bg-cover bg-center">
+        <Container>
+          <div className="py-20 max-w-2xl">
+            <h2 className="text-5xl font-bold text-white mb-5">
+              {compromissoSocial.titulo}
+            </h2>
+            <ContentRichTextWhite data={compromissoSocial.conteudo} />
+          </div>
+        </Container>
+      </section>
     </main>
   )
 }
