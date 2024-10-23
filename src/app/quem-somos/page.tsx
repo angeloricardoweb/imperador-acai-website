@@ -6,6 +6,7 @@ import useLang from '@/hooks/useLang'
 import { langData } from '@/location/langData'
 import { getAboutUsPage } from '@/services/prismicData/getAboutUsPage'
 import { getSocialCommitment } from '@/services/prismicData/getSocialCommitment'
+import { getSustentability } from '@/services/prismicData/getSustentability'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   const { data } = await getAboutUsPage()
   const { data: compromissoSocial } = await getSocialCommitment()
+  const { data: sustentabilidade } = await getSustentability()
   const { stringData } = useLang()
 
   if (!data) return null
@@ -65,6 +67,27 @@ export default async function Page() {
               {compromissoSocial.titulo}
             </h2>
             <ContentRichTextWhite data={compromissoSocial.conteudo} />
+          </div>
+        </section>
+        <section className="my-40">
+          <div className="grid md:grid-cols-2 gap-5">
+            <div>
+              <h2 className="text-7xl text-center font-bold">
+                {sustentabilidade?.titulo}
+              </h2>
+              <div className="mt-5 mb-12">
+                <div className="text-white">
+                  <ContentRichText data={sustentabilidade.conteudo} />
+                </div>
+              </div>
+            </div>
+            <div>
+              <img
+                className="h-96 object-contain w-full"
+                src={'/img/tucano.png'}
+                alt="tucano"
+              />
+            </div>
           </div>
         </section>
       </Container>

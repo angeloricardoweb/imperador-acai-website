@@ -27,16 +27,6 @@ export interface BannersDocumentDataItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   banner_mobile: prismic.ImageField<never>
-
-  /**
-   * Link field in *Banners → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: banners.items[].link
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  link: prismic.KeyTextField
 }
 
 /**

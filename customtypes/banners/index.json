@@ -33,13 +33,6 @@
                 },
                 "thumbnails": []
               }
-            },
-            "link": {
-              "type": "Text",
-              "config": {
-                "label": "Link",
-                "placeholder": ""
-              }
             }
           }
         }

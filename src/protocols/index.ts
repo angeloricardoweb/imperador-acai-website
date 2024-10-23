@@ -1,4 +1,4 @@
-export type Me = {
+export interface Me {
   id: string
   name: string
   email: string
