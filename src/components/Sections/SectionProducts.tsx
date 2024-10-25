@@ -16,7 +16,7 @@ export default async function SectionProducts() {
       <Container>
         <div className="py-10">
           <h2 className="text-center text-white font-bold text-7xl">
-            {stringData(langData.Products)}
+            {stringData(langData.SaudeParaSuaVida)}
           </h2>
           <SwiperProducts products={data} />
         </div>

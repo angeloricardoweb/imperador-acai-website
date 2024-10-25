@@ -87,4 +87,12 @@ export const langData = {
     'pt-br':
       'Se você deseja ser um revendedor, entre em contato conosco que explicaremos como funciona.',
   },
+  SaudeParaSuaVida: {
+    'en-us': 'Health for your life',
+    'pt-br': 'Saúde para sua vida',
+  },
+  OSaborDaAmazonia: {
+    'en-us': 'The taste of the Amazon',
+    'pt-br': 'O sabor da Amazônia',
+  },
 }
