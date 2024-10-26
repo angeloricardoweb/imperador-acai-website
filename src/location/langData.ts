@@ -95,4 +95,8 @@ export const langData = {
     'en-us': 'The taste of the Amazon',
     'pt-br': 'O sabor da Amazônia',
   },
+  QualidadeComprovada: {
+    'en-us': 'Proven quality',
+    'pt-br': 'Qualidade comprovada',
+  },
 }

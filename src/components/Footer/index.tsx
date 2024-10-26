@@ -78,6 +78,8 @@ export default function Footer() {
                       src={certification.certificacao.url as string}
                       key={certification.certificacao.url}
                       alt="Certificação"
+                      width={60}
+                      height={60}
                     />
                   )
                 })}

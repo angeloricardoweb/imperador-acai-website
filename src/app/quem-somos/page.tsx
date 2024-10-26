@@ -23,7 +23,7 @@ export default async function Page() {
 
   return (
     <main className="">
-      <Subheader title={'Quem Somos'} />
+      <Subheader title={stringData(langData.About)} />
       <Container>
         <div className="my-10">
           <h3 className="text-7xl text-brand-green text-center font-bold">
