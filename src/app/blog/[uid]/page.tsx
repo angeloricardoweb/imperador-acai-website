@@ -1,3 +1,5 @@
+import Subheader from '@/components/Header/Subheader'
+import { Container } from '@/components/Partials/Container'
 import ContentRichText from '@/components/Prismic/ContentRichText'
 import { getPostDetails } from '@/services/prismicData/getPostDetails'
 import { Metadata } from 'next'
@@ -28,13 +30,31 @@ export default async function Page({ params }: { params: { uid: string } }) {
   const post = await getPostDetails(params.uid)
 
   return (
-    <div className="mx-auto max-w-lg py-10">
-      {post.data.capa.url && (
-        <img src={post.data.capa.url} alt={post.data.capa.alt ?? 'capa'} />
-      )}
-      <h2>{post.data.titulo}</h2>
-      <p>{post.data.autor}</p>
-      <ContentRichText data={post.data.conteudo} />
-    </div>
+    <main>
+      <Subheader title={`Blog`} />
+      <Container>
+        <div className="py-10">
+          <h1 className="font-bold text-3xl">{post.data.titulo}</h1>
+          <p>
+            {new Intl.DateTimeFormat('pt-BR', {
+              dateStyle: 'short',
+            }).format(new Date(post.first_publication_date))}{' '}
+            - Postado por <strong>{post.data.autor}</strong>
+          </p>
+          <article className="mt-5">
+            {post.data.capa.url && (
+              <img
+                src={post.data.capa.url}
+                alt={post.data.capa.alt ?? 'capa'}
+                className="w-full aspect-video object-cover"
+              />
+            )}
+            <div className="mt-5">
+              <ContentRichText data={post.data.conteudo} />
+            </div>
+          </article>
+        </div>
+      </Container>
+    </main>
   )
 }

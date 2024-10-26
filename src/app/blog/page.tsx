@@ -19,9 +19,8 @@ export default function Page() {
   return (
     <main>
       <Subheader title={stringData(langData.Blog)} />
-
       <Container>
-        <div className="grid grid-cols-4 gap-5 py-20">
+        <div className="grid md:grid-cols-4 gap-5 py-20">
           {isLoading &&
             Array.from({ length: 4 }).map((_, index) => (
               <div key={index} className="max-w-xs border p-5 shadow">
