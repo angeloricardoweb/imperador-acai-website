@@ -1,5 +1,4 @@
 'use client'
-
 import Link from 'next/link'
 import { Container } from '../Partials/Container'
 import { Copyright } from './Copyright'
@@ -32,16 +31,16 @@ export default function Footer() {
   return (
     <footer className="border-t bg-brand-green text-white">
       <Container>
-        <div className="grid grid-cols-7 gap-4 py-10">
+        <div className="md:grid grid-cols-7 gap-4 py-10">
           <div className="col-span-2">
             <img
               src="/img/logos/logo-imperador-branca 1.png"
               data-fancybox
               data-caption="Single image"
               alt="Logo"
-              className="w-32 cursor-pointer"
+              className="w-32 cursor-pointer mx-auto md:mx-0"
             />
-            <div className="mt-5 flex items-center gap-3">
+            <div className="mt-5 flex items-center gap-3 justify-center md:justify-start">
               <p className="font-bold text-white">
                 {stringData(langData.FollowUs)}
               </p>
@@ -66,12 +65,12 @@ export default function Footer() {
               )}
             </div>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 mt-5">
             <p className="font-bold text-center md:text-start text-white">
               {certifications?.data.titulo}
             </p>
             {
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center md:justify-start">
                 {certifications?.data.itens.map((certification) => {
                   return (
                     <img
@@ -86,16 +85,22 @@ export default function Footer() {
               </div>
             }
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 mt-5 md:mt-0">
             {navLinks.map((link: any) => {
               return (
-                <Link href={link.route} key={link.name}>
-                  <strong>{link.name}</strong>
+                <Link
+                  href={link.route}
+                  key={link.name}
+                  passHref
+                  prefetch={false}
+                  className="text-center md:text-start"
+                >
+                  <p className="font-bold text-white">{link.name}</p>
                 </Link>
               )
             })}
           </div>
-          <div className="col-span-2 flex flex-col">
+          <div className="col-span-2 flex flex-col items-center md:text-start gap-5 md:gap-0">
             <p className="font-bold text-white">
               {stringData(langData.Atendment)}
             </p>

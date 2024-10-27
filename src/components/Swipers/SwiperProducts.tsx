@@ -36,8 +36,9 @@ export default function SwiperProducts({
               <img
                 src={product?.data.imagem.url as string}
                 alt={product.data.nome as string}
+                className="w-80 h-80 object-cover rounded-lg"
               />
-              <div className="w-80">
+              <div className="md:w-80">
                 <h3 className="font-bold text-white text-center text-4xl">
                   {product.data.nome}
                 </h3>

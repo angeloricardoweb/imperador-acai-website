@@ -62,7 +62,7 @@ export function Header() {
             className="md:hidden"
             onClick={() => setShowMenuHamburguer(true)}
           >
-            <Icon icon="mdi:menu" className="text-3xl text-white" />
+            <Icon icon="mdi:menu" className="text-3xl text-brand-green" />
           </div>
         </div>
       </Container>

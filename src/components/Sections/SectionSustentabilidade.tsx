@@ -21,24 +21,27 @@ export default function SectionSustentabilidade() {
     )
 
   return (
-    <section className="py-20 bg-[url('/img/onca.png')] bg-cover bg-right">
-      <Container>
-        <div className="grid md:grid-cols-2 gap-5">
-          <div>
-            <h2 className="text-7xl text-center font-bold text-white">
-              {data?.data.titulo}
-            </h2>
-            <div className="mt-5 mb-12">
-              <div className="text-white">
-                <ContentRichTextWhite data={data?.data.conteudo} />
-              </div>
-              {/* <Link href="/sobre-nos#sustentabilidade">
+    <section className="py-20 bg-[url('/img/onca.png')] bg-cover bg-right relative">
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70"></div>
+      <div className="relative z-10">
+        <Container>
+          <div className="grid md:grid-cols-2 gap-5">
+            <div>
+              <h2 className="text-5xl md:text-7xl md:text-center font-bold text-white">
+                {data?.data.titulo}
+              </h2>
+              <div className="mt-5 mb-12">
+                <div className="text-white">
+                  <ContentRichTextWhite data={data?.data.conteudo} />
+                </div>
+                {/* <Link href="/sobre-nos#sustentabilidade">
                 <Button variant="primaryGreen">Veja mais</Button>
-              </Link> */}
+                </Link> */}
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </section>
   )
 }

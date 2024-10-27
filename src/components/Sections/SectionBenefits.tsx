@@ -36,7 +36,7 @@ export default function SectionBenefits() {
   return (
     <section className="py-20">
       <Container>
-        <h2 className="text-7xl text-center font-bold">
+        <h2 className="text-5xl md:text-7xl text-center font-bold">
           {benefits?.data.titulo_da_secao}
         </h2>
         <div className="mt-5 mb-12">
@@ -44,9 +44,9 @@ export default function SectionBenefits() {
             {benefits?.data.descricao_da_secao}
           </p>
         </div>
-        <div className="bg-[url('/img/bg-benefits.png')] aspect-[21/6] bg-cover rounded">
-          <div className="grid grid-cols-3 gap-5 items-center h-full">
-            <div className="h-fit">
+        <div className="bg-[url('/img/bg-benefits.png')] md:aspect-[21/6] bg-cover rounded">
+          <div className="md:grid grid-cols-3 gap-5 items-center h-full">
+            <div className="h-fit pt-5 md:pt-0">
               {benefits?.data.beneficios.map((beneficio, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <div
@@ -69,14 +69,18 @@ export default function SectionBenefits() {
                 </div>
               ))}
             </div>
-            <div>
-              <p className="mt-5 text-white font-bold text-4xl">
+            <div className="p-5 md:p-0">
+              <p className="mt-5 text-white font-bold text-xl md:text-4xl">
                 {benefitActive?.titulo}
               </p>
               <p className="mt-4 text-white">{benefitActive?.descricao}</p>
             </div>
             <div className="px-5 translate-y-10">
-              <img src="/img/tigela.png" alt="tigela" />
+              <img
+                src="/img/tigela.png"
+                alt="tigela"
+                className="w-40 md:w-full"
+              />
             </div>
           </div>
         </div>

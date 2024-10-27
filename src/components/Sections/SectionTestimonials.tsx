@@ -14,8 +14,8 @@ export default async function SectionTestimonials() {
   return (
     <section className="">
       <Container>
-        <div className="py-20">
-          <h2 className="text-center font-bold text-7xl">
+        <div className="py-10 md:py-20">
+          <h2 className="text-center font-bold text-5xl md:text-7xl">
             {stringData(langData.Testimonials)}
           </h2>
           <SwiperTestimonials data={data.data} />

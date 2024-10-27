@@ -1,10 +1,9 @@
 'use client'
 import React from 'react'
 import useMenuHamburguerStore from '../../stores/useMenuHamburguerStore'
-import { Icon } from '@iconify/react'
 import useNavLinks from '@/hooks/useNavLinks'
 import { useRouter } from 'next/navigation'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, X } from 'lucide-react'
 
 export function MenuHamburguer() {
   const { setShowMenuHamburguer, showMenuHamburguer } = useMenuHamburguerStore()
@@ -23,14 +22,13 @@ export function MenuHamburguer() {
         showMenuHamburguer ? 'right-0' : '-right-[700px]'
       } overflow-y-auto transition-all`}
     >
-      <div className="relative h-full w-full py-20">
-        <Icon
-          icon="mdi:close"
-          className="absolute right-5 top-5 cursor-pointer text-3xl"
+      <div className="relative h-full w-full py-20 border">
+        <X
+          className="fixed right-5 top-5 text-brand-green cursor-pointer bg-black/10 p-2 rounded-full"
           onClick={() => setShowMenuHamburguer(false)}
         />
         <div className="flex justify-center px-10 py-4">
-          <img src="/img/logo.png" alt="bredi" />
+          <img src="/img/logo.png" alt="logo" />
         </div>
 
         <div className="py-20">
@@ -70,7 +68,7 @@ export function MenuHamburguer() {
               )
           })}
 
-          <div className="bg-white py-10">
+          {/* <div className="bg-white py-10">
             <div className="flex flex-col items-center justify-center pb-5">
               <h2>Idioma</h2>
             </div>
@@ -84,7 +82,7 @@ export function MenuHamburguer() {
               />{' '}
               (99) 9999-9999
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

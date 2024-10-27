@@ -107,4 +107,12 @@ export const langData = {
     'en-us': 'Where we are?',
     'pt-br': 'Onde estamos?',
   },
+  SaibaMais: {
+    'en-us': 'Learn more',
+    'pt-br': 'Saiba mais',
+  },
+  sejaUmDistibuidor: {
+    'en-us': 'Be a distributor',
+    'pt-br': 'Seja um distribuidor',
+  },
 }
