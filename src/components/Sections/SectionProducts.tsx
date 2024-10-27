@@ -15,7 +15,7 @@ export default async function SectionProducts() {
     <section className="bg-[url('/img/bg-products.png')] bg-cover">
       <Container>
         <div className="py-10">
-          <h2 className="text-center text-white font-bold text-7xl">
+          <h2 className="text-center text-white font-bold text-5xl md:text-7xl">
             {stringData(langData.SaudeParaSuaVida)}
           </h2>
           <SwiperProducts products={data} />

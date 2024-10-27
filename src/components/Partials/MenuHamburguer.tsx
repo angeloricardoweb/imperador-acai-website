@@ -4,11 +4,19 @@ import useMenuHamburguerStore from '../../stores/useMenuHamburguerStore'
 import useNavLinks from '@/hooks/useNavLinks'
 import { useRouter } from 'next/navigation'
 import { ChevronDown, X } from 'lucide-react'
+import { usePrismicLangs } from '@/hooks/usePrismicLangs'
+import { useCookies } from '@/stores/useCookies'
 
 export function MenuHamburguer() {
   const { setShowMenuHamburguer, showMenuHamburguer } = useMenuHamburguerStore()
   const { navLinks } = useNavLinks()
+  const { availableLangs } = usePrismicLangs()
+  const { addCookie, getCookie } = useCookies()
 
+  function addLangCookie(lang: string) {
+    addCookie('lang', lang)
+    window.location.reload()
+  }
   const router = useRouter() // router.push('/')
 
   function handleRouting(routeName: string) {
@@ -26,6 +34,8 @@ export function MenuHamburguer() {
         <X
           className="fixed right-5 top-5 text-brand-green cursor-pointer bg-black/10 p-2 rounded-full"
           onClick={() => setShowMenuHamburguer(false)}
+          width={32}
+          height={32}
         />
         <div className="flex justify-center px-10 py-4">
           <img src="/img/logo.png" alt="logo" />
@@ -67,22 +77,21 @@ export function MenuHamburguer() {
                 </div>
               )
           })}
-
-          {/* <div className="bg-white py-10">
-            <div className="flex flex-col items-center justify-center pb-5">
-              <h2>Idioma</h2>
-            </div>
-            <p className="text-center text-xl text-zinc-900">
-              contato@site.com.br
-            </p>
-            <p className="flex items-center justify-center text-center text-xl text-zinc-900">
-              <Icon
-                icon="mdi:whatsapp"
-                className="mr-2 text-xl text-blue-300"
-              />{' '}
-              (99) 9999-9999
-            </p>
-          </div> */}
+          <div className="flex justify-center gap-5 mt-5">
+            {availableLangs &&
+              availableLangs.length > 1 &&
+              availableLangs?.map((lang) => (
+                <span
+                  className="cursor-pointer hover:opacity-70 uppercase text-3xl"
+                  key={lang.id}
+                  onClick={() => addLangCookie(lang.id)}
+                  title={lang.name}
+                  style={{ opacity: getCookie('lang') === lang.id ? 1 : 0.5 }}
+                >
+                  {lang.id.split('-')[1]}
+                </span>
+              ))}
+          </div>
         </div>
       </div>
     </div>

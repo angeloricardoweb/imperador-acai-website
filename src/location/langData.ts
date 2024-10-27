@@ -115,4 +115,8 @@ export const langData = {
     'en-us': 'Be a distributor',
     'pt-br': 'Seja um distribuidor',
   },
+  Comprar: {
+    'en-us': 'Buy',
+    'pt-br': 'Comprar',
+  },
 }

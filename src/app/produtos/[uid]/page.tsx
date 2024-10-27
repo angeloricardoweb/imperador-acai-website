@@ -16,7 +16,6 @@ export async function generateMetadata({
   params: { uid: string }
 }): Promise<Metadata> {
   const product = await getProductDetails(params.uid)
-
   return {
     title: product.data.nome,
     description: product.data.descricao,
@@ -80,7 +79,9 @@ export default async function Page({ params }: { params: { uid: string } }) {
                 rel="noreferrer"
               >
                 <Button variant="primaryGreen">
-                  <p className="text-xl text-white px-3 py-2">Comprar</p>
+                  <p className="text-xl text-white px-3 py-2">
+                    {stringData(langData.Comprar)}
+                  </p>
                 </Button>
               </a>
             </div>
