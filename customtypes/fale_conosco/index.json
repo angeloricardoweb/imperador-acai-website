@@ -1,0 +1,27 @@
+{
+  "format": "custom",
+  "id": "fale_conosco",
+  "label": "Fale Conosco",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "descricao": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrição",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "mapa_iframe": {
+        "type": "Text",
+        "config": {
+          "label": "Mapa iframe",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

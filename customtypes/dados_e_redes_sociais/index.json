@@ -54,6 +54,13 @@
           "label": "Telefone",
           "placeholder": "Ex: (99) 99999-9999"
         }
+      },
+      "horario_de_funcionamento": {
+        "type": "Text",
+        "config": {
+          "label": "Horário de Funcionamento",
+          "placeholder": ""
+        }
       }
     }
   }

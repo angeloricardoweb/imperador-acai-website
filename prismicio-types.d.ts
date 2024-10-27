@@ -334,6 +334,17 @@ interface DadosERedesSociaisDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   telefone: prismic.KeyTextField
+
+  /**
+   * Horário de Funcionamento field in *Dados e Redes Sociais*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dados_e_redes_sociais.horario_de_funcionamento
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  horario_de_funcionamento: prismic.KeyTextField
 }
 
 /**
@@ -416,6 +427,49 @@ export type DepoimentosDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
     Simplify<DepoimentosDocumentData>,
     'depoimentos',
+    Lang
+  >
+
+/**
+ * Content for Fale Conosco documents
+ */
+interface FaleConoscoDocumentData {
+  /**
+   * Descrição field in *Fale Conosco*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fale_conosco.descricao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descricao: prismic.RichTextField
+
+  /**
+   * Mapa iframe field in *Fale Conosco*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fale_conosco.mapa_iframe
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mapa_iframe: prismic.KeyTextField
+}
+
+/**
+ * Fale Conosco document from Prismic
+ *
+ * - **API ID**: `fale_conosco`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FaleConoscoDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FaleConoscoDocumentData>,
+    'fale_conosco',
     Lang
   >
 
@@ -911,6 +965,7 @@ export type AllDocumentTypes =
   | CompromissoSocialDocument
   | DadosERedesSociaisDocument
   | DepoimentosDocument
+  | FaleConoscoDocument
   | FaqDocument
   | PaginaQuemSomosDocument
   | PostDocument
@@ -946,6 +1001,8 @@ declare module '@prismicio/client' {
       DepoimentosDocument,
       DepoimentosDocumentData,
       DepoimentosDocumentDataItemsItem,
+      FaleConoscoDocument,
+      FaleConoscoDocumentData,
       FaqDocument,
       FaqDocumentData,
       FaqDocumentDataItemsItem,

@@ -99,4 +99,12 @@ export const langData = {
     'en-us': 'Proven quality',
     'pt-br': 'Qualidade comprovada',
   },
+  WorkingHours: {
+    'en-us': 'Working hours',
+    'pt-br': 'Horário de funcionamento',
+  },
+  OndeEstamos: {
+    'en-us': 'Where we are?',
+    'pt-br': 'Onde estamos?',
+  },
 }
