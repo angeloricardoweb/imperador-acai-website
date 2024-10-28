@@ -1,3 +1,4 @@
+'use client'
 import { getInfos } from '@/services/prismicData/getInfos'
 import { Icon } from '@iconify/react'
 import useSWR from 'swr'
