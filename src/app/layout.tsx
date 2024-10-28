@@ -7,6 +7,7 @@ import { Toaster } from 'react-hot-toast'
 import 'swiper/css/bundle'
 import '../styles/index.scss'
 import DialogPrivacityPolicy from '@/components/Dialogs/DialogPrivacityPolicy'
+import { WhatsappButton } from '@/components/Partials/WhatsappButton'
 const poppins = Poppins({
   fallback: ['sans-serif'],
   weight: ['500', '600', '700'],
@@ -73,6 +74,7 @@ export default function RootLayout({
           }}
         />
         <DialogPrivacityPolicy />
+        <WhatsappButton />
       </body>
     </html>
   )
