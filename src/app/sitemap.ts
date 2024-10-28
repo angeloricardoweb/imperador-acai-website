@@ -6,33 +6,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const produtos = await client.getAllByType('produto')
 
   const postsEntries = posts.map((post) => ({
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${post.uid}`,
+    url: `https://imperadoracai.com/blog/${post.uid}`,
     lastModified: post.last_publication_date,
     changeFrequency: 'weekly',
   }))
 
   const produtosEntries = produtos.map((produto) => ({
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/produtos/${produto.uid}`,
+    url: `https://imperadoracai.com/produtos/${produto.uid}`,
     lastModified: produto.last_publication_date,
     changeFrequency: 'weekly',
   }))
 
   return [
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+      url: `https://imperadoracai.com/`,
       lastModified: new Date().toISOString(),
       changeFrequency: 'daily',
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/quem-somos`,
+      url: `https://imperadoracai.com/quem-somos`,
       lastModified: new Date().toISOString(),
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/certificacoes`,
+      url: `https://imperadoracai.com/certificacoes`,
       lastModified: new Date().toISOString(),
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/contatos`,
+      url: `https://imperadoracai.com/contatos`,
       lastModified: new Date().toISOString(),
     },
     ...(postsEntries as any),
