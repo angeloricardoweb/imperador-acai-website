@@ -8,6 +8,7 @@ import { Button } from '../Buttons/Button'
 import Link from 'next/link'
 import useLang from '@/hooks/useLang'
 import { langData } from '@/location/langData'
+import { Fade } from 'react-awesome-reveal'
 
 export default function SectionPartner() {
   const { stringData } = useLang()
@@ -31,9 +32,11 @@ export default function SectionPartner() {
         <Container>
           <div className="grid md:grid-cols-3 gap-5">
             <div className="col-span-2">
-              <h2 className="text-5xl md:text-7xl font-bold text-white">
-                {data?.data.titulo}
-              </h2>
+              <Fade>
+                <h2 className="text-5xl md:text-7xl font-bold text-white">
+                  {data?.data.titulo}
+                </h2>
+              </Fade>
               <div className="mt-5 mb-5 md:mb-12 text-xl">
                 <p className="text-white">{data?.data.descricao}</p>
               </div>

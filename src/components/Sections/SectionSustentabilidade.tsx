@@ -5,6 +5,7 @@ import useSWR from 'swr'
 import { getSustentability } from '@/services/prismicData/getSustentability'
 import { Loader2 } from 'lucide-react'
 import ContentRichTextWhite from '../Prismic/ContentRichTextWhite'
+import { Fade } from 'react-awesome-reveal'
 
 export default function SectionSustentabilidade() {
   const { data, error, isLoading } = useSWR('getSustentability', async () => {
@@ -21,15 +22,17 @@ export default function SectionSustentabilidade() {
     )
 
   return (
-    <section className="py-20 bg-[url('/img/onca.png')] bg-cover bg-right relative">
+    <section className="py-20 bg-[url('/img/onca.png')] bg-fixed bg-cover bg-right relative">
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70"></div>
       <div className="relative z-10">
         <Container>
           <div className="grid md:grid-cols-2 gap-5">
             <div>
-              <h2 className="text-5xl md:text-7xl md:text-center font-bold text-white">
-                {data?.data.titulo}
-              </h2>
+              <Fade>
+                <h2 className="text-5xl md:text-7xl md:text-center font-bold text-white">
+                  {data?.data.titulo}
+                </h2>
+              </Fade>
               <div className="mt-5 mb-12">
                 <div className="text-white">
                   <ContentRichTextWhite data={data?.data.conteudo} />

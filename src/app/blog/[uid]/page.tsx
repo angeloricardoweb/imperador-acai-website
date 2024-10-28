@@ -1,3 +1,4 @@
+import FadeAnimation from '@/components/Animations/FadeAnimation'
 import Subheader from '@/components/Header/Subheader'
 import { Container } from '@/components/Partials/Container'
 import ContentRichText from '@/components/Prismic/ContentRichText'
@@ -34,7 +35,9 @@ export default async function Page({ params }: { params: { uid: string } }) {
       <Subheader title={`Blog`} />
       <Container>
         <div className="py-10">
-          <h1 className="font-bold text-3xl">{post.data.titulo}</h1>
+          <FadeAnimation direction="down">
+            <h1 className="font-bold text-3xl">{post.data.titulo}</h1>
+          </FadeAnimation>
           <p>
             {new Intl.DateTimeFormat('pt-BR', {
               dateStyle: 'short',

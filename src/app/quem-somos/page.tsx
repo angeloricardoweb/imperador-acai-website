@@ -1,3 +1,4 @@
+import FadeAnimation from '@/components/Animations/FadeAnimation'
 import Subheader from '@/components/Header/Subheader'
 import { Container } from '@/components/Partials/Container'
 import ContentRichText from '@/components/Prismic/ContentRichText'
@@ -26,9 +27,11 @@ export default async function Page() {
       <Subheader title={stringData(langData.About)} />
       <Container>
         <div className="my-10">
-          <h3 className="text-5xl md:text-7xl text-brand-green md:text-center font-bold">
-            {data.titulo}
-          </h3>
+          <FadeAnimation direction="down">
+            <h3 className="text-5xl md:text-7xl text-brand-green md:text-center font-bold">
+              {data.titulo}
+            </h3>
+          </FadeAnimation>
         </div>
         <section className="md:grid grid-cols-5 gap-5">
           <div className="bg-[url(/img/img-quem-somos.png)] bg-cover col-span-2 h-full"></div>

@@ -1,4 +1,5 @@
 'use client'
+import FadeAnimation from '@/components/Animations/FadeAnimation'
 import Subheader from '@/components/Header/Subheader'
 import { Container } from '@/components/Partials/Container'
 import useLang from '@/hooks/useLang'
@@ -21,9 +22,11 @@ export default function Page() {
       <Subheader title={stringData(langData.Blog)} />
       <Container>
         <div className="my-10">
-          <h3 className="text-5xl md:text-7xl text-brand-green text-center font-bold">
-            {stringData(langData.ConfiraNossasNovidades)}
-          </h3>
+          <FadeAnimation direction="down">
+            <h3 className="text-5xl md:text-7xl text-brand-green text-center font-bold">
+              {stringData(langData.ConfiraNossasNovidades)}
+            </h3>
+          </FadeAnimation>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 pb-20">
           {isLoading &&

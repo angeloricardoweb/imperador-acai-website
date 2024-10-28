@@ -1,3 +1,4 @@
+import FadeAnimation from '@/components/Animations/FadeAnimation'
 import { Button } from '@/components/Buttons/Button'
 import Subheader from '@/components/Header/Subheader'
 import { Container } from '@/components/Partials/Container'
@@ -42,9 +43,11 @@ export default async function Page({ params }: { params: { uid: string } }) {
     <main>
       <Subheader title={product.data.nome as string} />
       <div className="py-10">
-        <h2 className="text-center text-brand-green font-bold text-7xl">
-          {stringData(langData.OSaborDaAmazonia)}
-        </h2>
+        <FadeAnimation direction="down">
+          <h2 className="text-center text-brand-green font-bold text-7xl">
+            {stringData(langData.OSaborDaAmazonia)}
+          </h2>
+        </FadeAnimation>
       </div>
       <Container>
         <section className="md:grid grid-cols-9 gap-20">
@@ -79,7 +82,7 @@ export default async function Page({ params }: { params: { uid: string } }) {
                 rel="noreferrer"
               >
                 <Button variant="primaryGreen">
-                  <p className="text-xl text-white px-3 py-2">
+                  <p className="text-xl text-white px-3 py-2 animate-pulse">
                     {stringData(langData.Comprar)}
                   </p>
                 </Button>

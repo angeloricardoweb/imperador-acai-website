@@ -7,6 +7,7 @@ import useSWR from 'swr'
 import ContentRichText from '../Prismic/ContentRichText'
 import { langData } from '@/location/langData'
 import { getAboutUsSection } from '@/services/prismicData/getAboutUsSection'
+import { Fade } from 'react-awesome-reveal'
 
 export default function SectionAboutUs() {
   const { stringData } = useLang()
@@ -21,15 +22,19 @@ export default function SectionAboutUs() {
         <img src="/img/conheca.svg" alt="topo" className="translate-y-10" />
         <div className="md:grid grid-cols-9 gap-0">
           <div className="col-span-5">
-            <h2 className="text-5xl md:text-7xl font-bold mt-10">
-              {stringData(langData.About)}
-            </h2>
-            <ContentRichText data={data?.data.conteudo} />
-            <div className="mt-5">
-              <Button variant="primaryGreen">
-                {stringData(langData.SaibaMais)}
-              </Button>
-            </div>
+            <Fade direction="left">
+              <h2 className="text-5xl md:text-7xl font-bold mt-10">
+                {stringData(langData.About)}
+              </h2>
+            </Fade>
+            <Fade>
+              <ContentRichText data={data?.data.conteudo} />
+              <div className="mt-5">
+                <Button variant="primaryGreen">
+                  {stringData(langData.SaibaMais)}
+                </Button>
+              </div>
+            </Fade>
           </div>
           <div className="col-span-4">
             <img

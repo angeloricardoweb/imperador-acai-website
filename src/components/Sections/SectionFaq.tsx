@@ -7,6 +7,7 @@ import useLang from '@/hooks/useLang'
 import { langData } from '@/location/langData'
 import useSWR from 'swr'
 import { getFaq } from '@/services/prismicData/getFaq'
+import { Fade } from 'react-awesome-reveal'
 
 export default function SectionFaq() {
   const { stringData } = useLang()
@@ -50,9 +51,11 @@ export default function SectionFaq() {
           {stringData(langData.FrequentlyAskedQuestions)}
         </h2>
         {faq?.data.items.map((item, index) => (
-          <CollapseItem key={index} title={item.pergunta as string}>
-            <p className="rounded-b bg-zinc-100 p-3">{item.resposta}</p>
-          </CollapseItem>
+          <Fade key={index} delay={index * 100}>
+            <CollapseItem key={index} title={item.pergunta as string}>
+              <p className="rounded-b bg-zinc-100 p-3">{item.resposta}</p>
+            </CollapseItem>
+          </Fade>
         ))}
       </Container>
     </section>
