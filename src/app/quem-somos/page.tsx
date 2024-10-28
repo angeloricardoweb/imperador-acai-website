@@ -26,44 +26,44 @@ export default async function Page() {
       <Subheader title={stringData(langData.About)} />
       <Container>
         <div className="my-10">
-          <h3 className="text-7xl text-brand-green text-center font-bold">
+          <h3 className="text-5xl md:text-7xl text-brand-green md:text-center font-bold">
             {data.titulo}
           </h3>
         </div>
-        <section className="grid grid-cols-5 gap-5">
+        <section className="md:grid grid-cols-5 gap-5">
           <div className="bg-[url(/img/img-quem-somos.png)] bg-cover col-span-2 h-full"></div>
           <div className="col-span-3">
             <ContentRichText data={data.conteudo} />
           </div>
         </section>
-        <section className="flex justify-between gap-5 flex-wrap my-40">
+        <section className="flex justify-center md:justify-between gap-5 flex-wrap my-10 md:my-40 items-center">
           <div className="max-w-[260px] space-y-5">
-            <img className="h-40" src="/img/missao.svg" alt="missao" />
-            <h3 className="font-bold text-3xl">
+            <img className="h-40 mx-auto" src="/img/missao.svg" alt="missao" />
+            <h3 className="font-bold text-3xl text-center">
               {stringData(langData.mission)}
             </h3>
-            <p>{data.missao}</p>
+            <p className="text-center">{data.missao}</p>
           </div>
           <div className="max-w-[260px] space-y-5">
             <img className="h-40" src="/img/visao.svg" alt="visao" />
-            <h3 className="font-bold text-3xl">
+            <h3 className="font-bold text-3xl text-center">
               {stringData(langData.vision)}
             </h3>
-            <p>{data.visao}</p>
+            <p className="text-center">{data.visao}</p>
           </div>
           <div className="max-w-[260px] space-y-5">
             <img className="h-40" src="/img/valores.svg" alt="valores" />
-            <h3 className="font-bold text-3xl">
+            <h3 className="font-bold text-3xl text-center">
               {stringData(langData.values)}
             </h3>
-            <p>{data.valores}</p>
+            <p className="text-center">{data.valores}</p>
           </div>
         </section>
       </Container>
       <Container>
         <section className="bg-[url(/img/bg-barco.png)] bg-cover bg-center">
           <div className="p-20 max-w-2xl">
-            <h2 className="text-5xl font-bold text-white mb-5">
+            <h2 className="text-2xl md:text-5xl font-bold text-white mb-5">
               {compromissoSocial.titulo}
             </h2>
             <ContentRichTextWhite data={compromissoSocial.conteudo} />
@@ -72,7 +72,7 @@ export default async function Page() {
         <section className="my-40">
           <div className="grid md:grid-cols-2 gap-5">
             <div>
-              <h2 className="text-7xl text-center font-bold">
+              <h2 className="text-5xl md:text-7xl md:text-center font-bold">
                 {sustentabilidade?.titulo}
               </h2>
               <div className="mt-5 mb-12">

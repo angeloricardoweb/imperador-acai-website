@@ -119,4 +119,8 @@ export const langData = {
     'en-us': 'Buy',
     'pt-br': 'Comprar',
   },
+  ConfiraNossasNovidades: {
+    'en-us': 'Check out our news',
+    'pt-br': 'Confira nossas novidades',
+  },
 }
