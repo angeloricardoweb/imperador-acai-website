@@ -118,7 +118,7 @@ const text = {
 }
 
 const imageSection = {
-  backgroundColor: '#252f3d',
+  backgroundColor: '#e3e3e3',
   display: 'flex',
   padding: '20px 0',
   alignItems: 'center',
