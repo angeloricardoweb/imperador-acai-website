@@ -24,9 +24,7 @@ export interface AWSVerifyEmailProps {
   mensagem?: string
 }
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : ''
+const baseUrl = process.env.VERCEL_URL ? process.env.VERCEL_URL : ''
 // more examples in https://react.email/templates
 export default function AWSVerifyEmail({
   assunto,
