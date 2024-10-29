@@ -34,7 +34,7 @@ export default function Footer() {
         <div className="md:grid grid-cols-7 gap-4 py-10">
           <div className="col-span-2">
             <img
-              src="/img/logos/logo-imperador-branca 1.png"
+              src="/img/logo-imperador.png"
               data-fancybox
               data-caption="Single image"
               alt="Logo"

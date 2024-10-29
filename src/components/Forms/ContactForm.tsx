@@ -35,9 +35,16 @@ export function ContactForm() {
   const phoneValue = watch('telefone')
 
   async function postForm(data: FormData) {
-    console.log(data)
-    // await new Promise((resolve) => setTimeout(resolve, 2000))
-    sendEmailWithResend()
+    const { assunto, name, email, telefone, estado, cidade, mensagem } = data
+    sendEmailWithResend({
+      assunto,
+      name,
+      email,
+      telefone,
+      estado,
+      cidade,
+      mensagem,
+    })
     reset()
   }
 

@@ -1,12 +1,38 @@
 'use server'
-import AWSVerifyEmail from '@/components/EmailsTemplates/AWSVerifyEmail'
+import AWSVerifyEmail, {
+  AWSVerifyEmailProps,
+} from '@/components/EmailsTemplates/AWSVerifyEmail'
 import { render } from '@react-email/components'
 import { Resend } from 'resend'
 
 const resend = new Resend('re_UEBC2hzC_NgfWPEZjjBesoMHyoQ34K8Yi')
-
-export async function sendEmailWithResend() {
-  const emailHtml = await render(<AWSVerifyEmail verificationCode="123456" />)
+// assunto,
+//   name,
+//   email,
+//   telefone,
+//   estado,
+//   cidade,
+//   mensagem,
+export async function sendEmailWithResend({
+  assunto,
+  name,
+  email,
+  telefone,
+  estado,
+  cidade,
+  mensagem,
+}: AWSVerifyEmailProps) {
+  const emailHtml = await render(
+    <AWSVerifyEmail
+      assunto={assunto}
+      name={name}
+      email={email}
+      telefone={telefone}
+      estado={estado}
+      cidade={cidade}
+      mensagem={mensagem}
+    />,
+  )
 
   const response = await resend.emails.send({
     from: 'Novo Email <send@imperadoracai.com>',

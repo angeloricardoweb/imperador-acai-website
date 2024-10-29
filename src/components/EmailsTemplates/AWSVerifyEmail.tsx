@@ -14,8 +14,14 @@ import {
 } from '@react-email/components'
 import * as React from 'react'
 
-interface AWSVerifyEmailProps {
-  verificationCode?: string
+export interface AWSVerifyEmailProps {
+  assunto?: string
+  name?: string
+  email?: string
+  telefone?: string
+  estado?: string
+  cidade?: string
+  mensagem?: string
 }
 
 const baseUrl = process.env.VERCEL_URL
@@ -23,7 +29,13 @@ const baseUrl = process.env.VERCEL_URL
   : ''
 // more examples in https://react.email/templates
 export default function AWSVerifyEmail({
-  verificationCode = '596853',
+  assunto,
+  name,
+  email,
+  telefone,
+  estado,
+  cidade,
+  mensagem,
 }: AWSVerifyEmailProps) {
   return (
     <Html>
@@ -34,48 +46,36 @@ export default function AWSVerifyEmail({
           <Section style={coverSection}>
             <Section style={imageSection}>
               <Img
-                src={`${baseUrl}/img/logo.png`}
+                src={`${baseUrl}/img/logo-imperador.png`}
                 width="75"
                 height="75"
-                alt="AWS's Logo"
+                alt="Logo imperador"
               />
             </Section>
             <Section style={upperSection}>
-              <Heading style={h1}>Verify your email address</Heading>
-              <Text style={mainText}>
-                Thanks for starting the new AWS account creation process. We
-                want to make sure it's really you. Please enter the following
-                verification code when prompted. If you don&apos;t want to
-                create an account, you can ignore this message.
-              </Text>
-              <Section style={verificationSection}>
-                <Text style={verifyText}>Verification code</Text>
-
-                <Text style={codeText}>{verificationCode}</Text>
-                <Text style={validityText}>
-                  (This code is valid for 10 minutes)
-                </Text>
-              </Section>
+              <Heading style={h1}>Novo contato via Site</Heading>
+              <Text style={strongText}>Assunto:</Text>
+              <Text style={mainText}>{assunto}</Text>
+              <Text style={strongText}>Nome:</Text>
+              <Text style={mainText}>{name}</Text>
+              <Text style={strongText}>Email:</Text>
+              <Text style={mainText}>{email}</Text>
+              <Text style={strongText}>Telefone:</Text>
+              <Text style={mainText}>{telefone}</Text>
+              <Text style={strongText}>Estado:</Text>
+              <Text style={mainText}>{estado}</Text>
+              <Text style={strongText}>Cidade:</Text>
+              <Text style={mainText}>{cidade}</Text>
             </Section>
             <Hr />
             <Section style={lowerSection}>
-              <Text style={cautionText}>
-                Amazon Web Services will never email you and ask you to disclose
-                or verify your password, credit card, or banking account number.
-              </Text>
+              <Text style={cautionText}>{mensagem}</Text>
             </Section>
           </Section>
           <Text style={footerText}>
-            This message was produced and distributed by Amazon Web Services,
-            Inc., 410 Terry Ave. North, Seattle, WA 98109. © 2022, Amazon Web
-            Services, Inc.. All rights reserved. AWS is a registered trademark
-            of{' '}
-            <Link href="https://amazon.com" target="_blank" style={link}>
-              Amazon.com
-            </Link>
-            , Inc. View our{' '}
-            <Link href="https://amazon.com" target="_blank" style={link}>
-              privacy policy
+            Você está recebendo este e-mail porque alguém enviou uma mensagem de
+            <Link href="https://imperadoracai.com" target="_blank" style={link}>
+              imperadoracai.com
             </Link>
             .
           </Text>
@@ -140,33 +140,7 @@ const footerText = {
   fontSize: '12px',
   padding: '0 20px',
 }
-
-const verifyText = {
-  ...text,
-  margin: 0,
-  fontWeight: 'bold',
-  textAlign: 'center' as const,
-}
-
-const codeText = {
-  ...text,
-  fontWeight: 'bold',
-  fontSize: '36px',
-  margin: '10px 0',
-  textAlign: 'center' as const,
-}
-
-const validityText = {
-  ...text,
-  margin: '0px',
-  textAlign: 'center' as const,
-}
-
-const verificationSection = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}
+const strongText = { ...text, fontWeight: 'bold' }
 
 const mainText = { ...text, marginBottom: '14px' }
 

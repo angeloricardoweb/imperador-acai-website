@@ -36,7 +36,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link href="/">
             <img
-              src="/img/logo.png"
+              src="/img/logo-imperador.png"
               alt=""
               className="cursor-pointer py-3 transition-all"
               style={{ height: y > 0 ? '4rem' : '5rem' }}
