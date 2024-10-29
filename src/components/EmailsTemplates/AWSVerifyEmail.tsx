@@ -139,6 +139,4 @@ const footerText = {
 }
 const strongText = { ...text, fontWeight: 'bold' }
 
-const mainText = { ...text, marginBottom: '14px' }
-
 const cautionText = { ...text, margin: '0px' }
