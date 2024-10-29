@@ -43,7 +43,7 @@ export default function AWSVerifyEmail({
           <Section style={coverSection}>
             <Section style={imageSection}>
               <Img
-                src={`https://imperador-acai.vercel.app/img/logo-imperador.png`}
+                src={`https://imperador-acai.vercel.app/img/logo-sqr.png`}
                 width="75"
                 height="75"
                 alt="Logo imperador"
