@@ -8,6 +8,7 @@ import { normalizePhoneNumber } from './masks'
 import { ZodAllErrors } from './components/ZodAllErrors'
 import { sendEmailWithResend } from '@/libs/email-service/sendEmailWithResend'
 import toast from 'react-hot-toast'
+import AWSVerifyEmail from '../EmailsTemplates/AWSVerifyEmail'
 
 const registerSchema = z.object({
   assunto: z.string().min(1, { message: 'Selecione uma linguagem' }),
@@ -74,10 +75,10 @@ export function ContactForm() {
             <option value="Quero ser um revendedor">
               Quero ser um revendedor
             </option>
-            <option value="sugestao">Sugestão</option>
-            <option value="elogio">Elogio</option>
-            <option value="reclamacao">Reclamação</option>
-            <option value="outros">Dúvidas</option>
+            <option value="Sugestão">Sugestão</option>
+            <option value="Elogio">Elogio</option>
+            <option value="Reclamação">Reclamação</option>
+            <option value="Dúvidas">Dúvidas</option>
           </select>
         </fieldset>
 
@@ -175,6 +176,15 @@ export function ContactForm() {
           </Button>
         </div>
       </form>
+      <AWSVerifyEmail
+        assunto="Quero ser um revendedor"
+        name="John Doe"
+        email="teste@email.com"
+        telefone="(99) 99999-9999"
+        estado="Pará"
+        cidade="Belém"
+        mensagem="Mensagem de teste"
+      />
     </div>
   )
 }
