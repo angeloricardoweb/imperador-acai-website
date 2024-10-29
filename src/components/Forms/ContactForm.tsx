@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '../Buttons/Button'
 import { normalizePhoneNumber } from './masks'
 import { ZodAllErrors } from './components/ZodAllErrors'
+import { sendEmailWithResend } from '@/libs/email-service/sendEmailWithResend'
 
 const registerSchema = z.object({
   assunto: z.string().min(1, { message: 'Selecione uma linguagem' }),
@@ -35,7 +36,8 @@ export function ContactForm() {
 
   async function postForm(data: FormData) {
     console.log(data)
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    // await new Promise((resolve) => setTimeout(resolve, 2000))
+    sendEmailWithResend()
     reset()
   }
 
