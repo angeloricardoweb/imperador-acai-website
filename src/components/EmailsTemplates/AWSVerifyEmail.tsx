@@ -24,7 +24,6 @@ export interface AWSVerifyEmailProps {
   mensagem?: string
 }
 
-const baseUrl = process.env.VERCEL_URL ? process.env.VERCEL_URL : ''
 // more examples in https://react.email/templates
 export default function AWSVerifyEmail({
   assunto,
@@ -44,7 +43,7 @@ export default function AWSVerifyEmail({
           <Section style={coverSection}>
             <Section style={imageSection}>
               <Img
-                src={`${baseUrl}/img/logo-imperador.png`}
+                src={`https://imperador-acai.vercel.app/img/logo-imperador.png`}
                 width="75"
                 height="75"
                 alt="Logo imperador"
