@@ -40,7 +40,7 @@ export default function AWSVerifyEmail({
   return (
     <Html>
       <Head />
-      <Preview>AWS Email Verification</Preview>
+      <Preview>Você recebeu um mensagem do seu site!</Preview>
       <Body style={main}>
         <Container style={container}>
           <Section style={coverSection}>
@@ -55,17 +55,17 @@ export default function AWSVerifyEmail({
             <Section style={upperSection}>
               <Heading style={h1}>Novo contato via Site</Heading>
               <Text style={strongText}>Assunto:</Text>
-              <Text style={mainText}>{assunto}</Text>
+              <Text style={text}>{assunto}</Text>
               <Text style={strongText}>Nome:</Text>
-              <Text style={mainText}>{name}</Text>
+              <Text style={text}>{name}</Text>
               <Text style={strongText}>Email:</Text>
-              <Text style={mainText}>{email}</Text>
+              <Text style={text}>{email}</Text>
               <Text style={strongText}>Telefone:</Text>
-              <Text style={mainText}>{telefone}</Text>
+              <Text style={text}>{telefone}</Text>
               <Text style={strongText}>Estado:</Text>
-              <Text style={mainText}>{estado}</Text>
+              <Text style={text}>{estado}</Text>
               <Text style={strongText}>Cidade:</Text>
-              <Text style={mainText}>{cidade}</Text>
+              <Text style={text}>{cidade}</Text>
             </Section>
             <Hr />
             <Section style={lowerSection}>
@@ -73,7 +73,7 @@ export default function AWSVerifyEmail({
             </Section>
           </Section>
           <Text style={footerText}>
-            Você está recebendo este e-mail porque alguém enviou uma mensagem de
+            Você está recebendo este e-mail porque alguém enviou uma mensagem de{' '}
             <Link href="https://imperadoracai.com" target="_blank" style={link}>
               imperadoracai.com
             </Link>
@@ -118,7 +118,6 @@ const text = {
   fontFamily:
     "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
   fontSize: '14px',
-  margin: '24px 0',
 }
 
 const imageSection = {

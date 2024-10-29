@@ -7,6 +7,7 @@ import { Button } from '../Buttons/Button'
 import { normalizePhoneNumber } from './masks'
 import { ZodAllErrors } from './components/ZodAllErrors'
 import { sendEmailWithResend } from '@/libs/email-service/sendEmailWithResend'
+import toast from 'react-hot-toast'
 
 const registerSchema = z.object({
   assunto: z.string().min(1, { message: 'Selecione uma linguagem' }),
@@ -46,6 +47,7 @@ export function ContactForm() {
       mensagem,
     })
     reset()
+    toast.success('Mensagem enviada com sucesso!')
   }
 
   useEffect(() => {
