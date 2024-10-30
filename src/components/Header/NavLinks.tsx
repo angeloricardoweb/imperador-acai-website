@@ -2,11 +2,18 @@
 import Link from 'next/link'
 import { useSelectedLayoutSegment } from 'next/navigation'
 import useNavLinks from '@/hooks/useNavLinks'
-import { Facebook, Instagram } from 'lucide-react'
+import useSWR from 'swr'
 
+import { getInfos } from '@/services/prismicData/getInfos'
+import Icon from '../Adapters/Icon'
 export default function NavLinks() {
   const segment = useSelectedLayoutSegment()
   const { navLinks } = useNavLinks()
+
+  const { data: infos } = useSWR('getInfos', async () => {
+    const response = await getInfos()
+    return response
+  })
 
   return (
     <>
@@ -24,12 +31,21 @@ export default function NavLinks() {
           )
         })}
       </div>
-      <a href="/" rel="noreferrer" target="_blank">
-        <Facebook className="text-brand-green" />
-      </a>
-      <a href="/" rel="noreferrer" target="_blank">
-        <Instagram className="text-brand-green" />
-      </a>
+      {infos?.data.facebook && (
+        <a href={infos?.data.facebook} rel="noreferrer" target="_blank">
+          <Icon icon="mdi:facebook" className="text-2xl text-brand-green" />
+        </a>
+      )}
+      {infos?.data.instagram && (
+        <a href={infos?.data.instagram} rel="noreferrer" target="_blank">
+          <Icon icon="mdi:instagram" className="text-2xl text-brand-green" />
+        </a>
+      )}
+      {infos?.data.linkedin && (
+        <a href={infos?.data.linkedin} rel="noreferrer" target="_blank">
+          <Icon icon="mdi:linkedin" className="text-2xl text-brand-green" />
+        </a>
+      )}
     </>
   )
 }
