@@ -29,15 +29,15 @@ export default async function Page() {
           </FadeAnimation>
         </div>
         <section className="grid md:grid-cols-2 gap-5 mb-20">
-          <div className="flex items-center justify-center gap-5">
+          <div className="flex items-center justify-center gap-5 flex-wrap">
             {data?.itens.map((certification) => {
               return (
                 <img
                   src={certification.certificacao.url as string}
                   key={certification.certificacao.url}
                   alt="Certificação"
-                  width={90}
-                  height={90}
+                  width={120}
+                  height={120}
                 />
               )
             })}

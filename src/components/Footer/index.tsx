@@ -70,15 +70,15 @@ export default function Footer() {
               {certifications?.data.titulo}
             </p>
             {
-              <div className="flex items-center gap-3 justify-center md:justify-start">
+              <div className="flex items-center gap-3 justify-center md:justify-start flex-wrap">
                 {certifications?.data.itens.map((certification) => {
                   return (
                     <img
                       src={certification.certificacao.url as string}
                       key={certification.certificacao.url}
                       alt="Certificação"
-                      width={60}
-                      height={60}
+                      width={40}
+                      height={40}
                     />
                   )
                 })}

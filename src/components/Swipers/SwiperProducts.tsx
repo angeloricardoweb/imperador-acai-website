@@ -44,9 +44,11 @@ export default function SwiperProducts({
                   alt={product.data.nome as string}
                 />
                 <div className="md:w-80">
-                  <h3 className="font-bold text-white text-center text-4xl">
-                    {product.data.nome}
-                  </h3>
+                  <div className="h-20">
+                    <h3 className="font-bold text-white text-center text-4xl">
+                      {product.data.nome}
+                    </h3>
+                  </div>
                   <div className="flex translate-y-10 justify-center">
                     <Button variant={'outlinedWhite'}>
                       {stringData(langData.SaibaMais)}
