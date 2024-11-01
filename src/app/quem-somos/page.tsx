@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const { stringData } = useLang()
   const { data } = await getAboutUsPage()
   const { data: sustentabilidade } = await getSustentability()
   const { data: compromissoSocial } = await getSocialCommitment()
@@ -25,7 +24,7 @@ export default async function Page() {
 
   return (
     <main className="">
-      <Subheader title={stringData(langData.About)} />
+      <Subheader title={`Sobre nós / About us`} />
       <Container>
         <div className="my-10">
           <FadeAnimation direction="down">

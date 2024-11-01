@@ -19,7 +19,7 @@ export default async function Page() {
 
   return (
     <main>
-      <Subheader title={stringData(langData.Certifications)} />
+      <Subheader title={`Certificações / Certifications`} />
       <Container>
         <div className="my-10">
           <FadeAnimation direction="down">

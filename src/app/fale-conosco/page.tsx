@@ -24,7 +24,7 @@ export default async function Page() {
 
   return (
     <main className="">
-      <Subheader title={stringData(langData.ContactUs)} />
+      <Subheader title={`Fale conosco / Contact us`} />
       <Container>
         <div className="grid md:grid-cols-2 gap-10 py-10">
           <section>

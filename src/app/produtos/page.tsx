@@ -6,7 +6,7 @@ import React from 'react'
 export default function Page() {
   return (
     <main>
-      <Subheader title={'Produtos'} />
+      <Subheader title={'Produtos / Products'} />
       <SectionProducts />
       <SectionCall />
     </main>

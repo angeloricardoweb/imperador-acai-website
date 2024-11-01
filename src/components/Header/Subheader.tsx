@@ -1,3 +1,4 @@
+'use client'
 import { Container } from '../Partials/Container'
 
 export default function Subheader({ title }: { title: string }) {
