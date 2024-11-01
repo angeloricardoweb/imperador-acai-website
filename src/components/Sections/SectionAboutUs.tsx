@@ -19,7 +19,9 @@ export default function SectionAboutUs() {
   return (
     <Container>
       <section className="py-10 relative">
-        <img src="/img/conheca.svg" alt="topo" className="translate-y-10" />
+        <h2 className="translate-y-10 text-[90px] text-zinc-300 font-light text-center">
+          {stringData(langData.ConhecaNossaHistoria)}
+        </h2>
         <div className="md:grid grid-cols-9 gap-0">
           <div className="col-span-5">
             <Fade direction="left">

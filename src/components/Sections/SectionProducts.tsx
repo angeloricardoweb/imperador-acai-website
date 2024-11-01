@@ -1,13 +1,19 @@
+'use client'
 import React from 'react'
 import SwiperProducts from '../Swipers/SwiperProducts'
 import { Container } from '../Partials/Container'
 import { getProducts } from '@/services/prismicData/getProducts'
 import useLang from '@/hooks/useLang'
 import { langData } from '@/location/langData'
+import useSWR from 'swr'
 
-export default async function SectionProducts() {
+export default function SectionProducts() {
   const { stringData } = useLang()
-  const data = await getProducts()
+
+  const { data } = useSWR('getProducts', async () => {
+    const response = await getProducts()
+    return response
+  })
 
   if (!data) return null
 
@@ -15,9 +21,9 @@ export default async function SectionProducts() {
     <section className="bg-[url('/img/bg-products.png')] bg-cover">
       <Container>
         <div className="py-10">
-          <h2 className="text-center text-white font-bold text-5xl md:text-7xl">
+          <h3 className="text-center text-white font-bold text-5xl md:text-7xl">
             {stringData(langData.SaudeParaSuaVida)}
-          </h2>
+          </h3>
           <SwiperProducts products={data} />
         </div>
       </Container>

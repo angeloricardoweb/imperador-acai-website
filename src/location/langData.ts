@@ -35,7 +35,7 @@ export const langData = {
     'en-us': 'Follow Us',
     'pt-br': 'Siga-nos',
   },
-  Testimonials: {
+  Testimonials_: {
     'en-us': 'Testimonials',
     'pt-br': 'Depoimentos',
   },
@@ -87,10 +87,7 @@ export const langData = {
     'pt-br':
       'Se você deseja ser um revendedor, entre em contato conosco que explicaremos como funciona.',
   },
-  SaudeParaSuaVida: {
-    'en-us': 'Health for your life',
-    'pt-br': 'Saúde para sua vida',
-  },
+
   OSaborDaAmazonia: {
     'en-us': 'The taste of the Amazon',
     'pt-br': 'O sabor da Amazônia',
@@ -122,5 +119,13 @@ export const langData = {
   ConfiraNossasNovidades: {
     'en-us': 'Check out our news',
     'pt-br': 'Confira nossas novidades',
+  },
+  ConhecaNossaHistoria: {
+    'en-us': 'Meet our history',
+    'pt-br': 'Conheça nossa história',
+  },
+  SaudeParaSuaVida: {
+    'en-us': 'Health for your life',
+    'pt-br': 'Saúde para sua vida',
   },
 }
