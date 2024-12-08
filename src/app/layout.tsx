@@ -32,9 +32,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <head>
-        {/* <script
+        <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=G-V7KJF6JS26`}
+          src={`https://www.googletagmanager.com/gtag/js?id=G-8BKLLQMY74`}
         />
         <script
           dangerouslySetInnerHTML={{
@@ -43,10 +43,10 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
 
-              gtag('config', 'G-V7KJF6JS26');
+              gtag('config', 'G-8BKLLQMY74');
             `,
           }}
-        /> */}
+        />
 
         <link
           rel="stylesheet"
