@@ -49,7 +49,6 @@ export default function RootLayout({
         />
         <script
           id="ms_analytics_clarity"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
             (function(c,l,a,r,i,t,y){
