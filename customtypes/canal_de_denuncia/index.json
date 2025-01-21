@@ -1,0 +1,44 @@
+{
+  "format": "custom",
+  "id": "canal_de_denuncia",
+  "label": "canal_de_denuncia",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "conteudo": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Conteúdo",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "mensagem_de_confirmacao": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Mensagem de confirmação",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "email_destinatario": {
+        "type": "Text",
+        "config": {
+          "label": "Email Destinatário",
+          "placeholder": ""
+        }
+      },
+      "banner": {
+        "type": "Image",
+        "config": {
+          "label": "Banner",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}
