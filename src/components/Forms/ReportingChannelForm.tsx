@@ -10,6 +10,7 @@ import toast from 'react-hot-toast'
 import useSWR from 'swr'
 import { getReportingPage } from '@/services/prismicData/getReportingPage'
 import ContentRichText from '../Prismic/ContentRichText'
+import axios from 'axios'
 const registerSchema = z.object({
   assunto: z.string().min(1, { message: 'Selecione um tipo de ocorrência' }),
   email: z.any(),
@@ -37,11 +38,50 @@ export function ReportingChannelForm() {
 
   async function postForm(data: FormData) {
     setShowMessage(false)
-    const { assunto, email, descricao } = data
-    console.log({ assunto, email, descricao, documento })
-    setShowMessage(true)
-    reset()
-    toast.success('Mensagem enviada com sucesso!')
+
+    try {
+      const formData = new FormData()
+
+      formData.append('nome_remetente', 'Canal de denúncia')
+      formData.append('email_remetente', data.email)
+      formData.append(
+        'conteudo_html',
+        `<div>
+            <h2 style="font-size:'20px'">Solicitação de contato via site<h2>
+            <p style="font-size:16px;font-weight: normal;"><strong>Nome:</strong> ${data.assunto}<p>
+            <p style="font-size:16px;font-weight: normal;"><strong>Usuário deseja ser informado:</strong> ${
+              desejoSerInformado ? 'Sim' : 'Não'
+            }<p>
+            <p style="font-size:16px;font-weight: normal;"><strong>E-mail:</strong> ${data.email || 'Não informado'}<p>
+            <p style="font-size:16px;font-weight: normal;"><strong>Descrição:</strong> ${data.descricao}<p>
+            <div>`,
+      )
+      formData.append('assunto', 'Contato via Site')
+      formData.append('nome_destinatario', 'Açaí Imperador')
+      formData.append('email_destinatario', data.email)
+      formData.append('cco', 'angeloricardodev@gmail.com')
+
+      if (documento?.length > 0) {
+        for (let i = 0; i < documento.length; i++) {
+          formData.append(`arquivo[]`, documento[i])
+        }
+      }
+
+      await axios.post(
+        'https://email-service.egidesolutions.com/api/send-email',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        },
+      )
+      toast.success('E-mail enviado com sucesso')
+      setShowMessage(true)
+      reset()
+    } catch (error) {
+      toast.error('Erro ao enviar e-mail, tente novamente mais tarde')
+    }
   }
 
   return (
@@ -87,11 +127,12 @@ export function ReportingChannelForm() {
 
         <fieldset className="col-span-2">
           <label htmlFor="documento" className="b-label">
-            Documento
+            Evidências ou Documentos (opcional)
           </label>
           <input
             type="file"
             id="documento"
+            multiple
             onChange={(e) => setDocumento(e.target.value)}
             className="b-input-file"
           />
@@ -133,11 +174,11 @@ export function ReportingChannelForm() {
         </div>
 
         <div className="col-span-2">
-          <div className="bg-green-100 p-4 rounded-lg mb-4">
-            {showMessage && (
+          {showMessage && (
+            <div className="bg-green-100 p-4 rounded-lg mb-4">
               <ContentRichText data={data?.data.mensagem_de_confirmacao} />
-            )}
-          </div>
+            </div>
+          )}
           <Button variant="primaryGreen" type="submit" isLoading={isSubmitting}>
             Enviar
           </Button>
