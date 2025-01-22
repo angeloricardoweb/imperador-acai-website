@@ -14,7 +14,7 @@ export default async function Page() {
 
   return (
     <main className="">
-      <Subheader title={`Canal de denúncia / Reporting Channel`} />
+      <Subheader title={`Canal de denúncia / Reporting channel`} />
       <Container>
         <div className="grid md:grid-cols-2 gap-10 py-10">
           <section>

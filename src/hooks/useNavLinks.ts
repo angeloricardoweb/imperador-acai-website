@@ -29,10 +29,10 @@ export default function useNavLinks() {
       route: '/fale-conosco',
       name: stringData(langData.ContactUs),
     },
-    {
-      route: '/canal-de-denuncia',
-      name: stringData(langData.ReportingChannel),
-    },
+    // {
+    //   route: '/canal-de-denuncia',
+    //   name: stringData(langData.ReportingChannel),
+    // },
   ]
 
   return {

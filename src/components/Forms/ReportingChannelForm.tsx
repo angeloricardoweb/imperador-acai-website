@@ -92,7 +92,8 @@ export function ReportingChannelForm() {
       >
         <fieldset className="col-span-2">
           <label htmlFor="assunto" className="b-label">
-            Tipo de denúncia
+            Selecione a opção que melhor descreve sua relação com o Açaí
+            Imperador:
           </label>
           <select
             id="assunto"
