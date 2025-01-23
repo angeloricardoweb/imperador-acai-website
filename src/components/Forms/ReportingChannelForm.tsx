@@ -102,9 +102,6 @@ export function ReportingChannelForm() {
             style={errors.assunto && { border: '1px solid red' }}
           >
             <option defaultValue={''}>Selecione</option>
-            <option value="Quero ser um revendedor">
-              Quero ser um revendedor
-            </option>
             <option value="Colaborador">Colaborador</option>
             <option value="Cliente">Cliente</option>
             <option value="Fornecedor">Fornecedor</option>
@@ -152,6 +149,12 @@ export function ReportingChannelForm() {
             />
             Desejo ser informado
           </label>
+          <small>
+            Ao marcar esta opção, você concorda em fornecer um endereço de
+            e-mail para receber atualizações sobre sua denúncia. Isso significa
+            que sua denúncia deixará de ser anônima, mas suas informações serão
+            tratadas com confidencialidade.
+          </small>
         </fieldset>
 
         {desejoSerInformado && (
