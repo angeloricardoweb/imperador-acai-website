@@ -102,9 +102,6 @@ export function ReportingChannelForm() {
             style={errors.assunto && { border: '1px solid red' }}
           >
             <option defaultValue={''}>Selecione</option>
-            <option value="Quero ser um revendedor">
-              Quero ser um revendedor
-            </option>
             <option value="Colaborador">Colaborador</option>
             <option value="Cliente">Cliente</option>
             <option value="Fornecedor">Fornecedor</option>
