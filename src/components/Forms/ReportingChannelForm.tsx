@@ -149,6 +149,12 @@ export function ReportingChannelForm() {
             />
             Desejo ser informado
           </label>
+          <small>
+            Ao marcar esta opção, você concorda em fornecer um endereço de
+            e-mail para receber atualizações sobre sua denúncia. Isso significa
+            que sua denúncia deixará de ser anônima, mas suas informações serão
+            tratadas com confidencialidade.
+          </small>
         </fieldset>
 
         {desejoSerInformado && (
