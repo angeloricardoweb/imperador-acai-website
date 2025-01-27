@@ -43,7 +43,10 @@ export function ReportingChannelForm() {
       const formData = new FormData()
 
       formData.append('nome_remetente', 'Canal de denúncia')
-      formData.append('email_remetente', dataForm.email)
+      formData.append(
+        'email_remetente',
+        dataForm.email || 'egidesolutionsbel@gmail.com',
+      )
       formData.append(
         'conteudo_html',
         `<div>
