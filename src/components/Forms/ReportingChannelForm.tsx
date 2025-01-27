@@ -62,8 +62,6 @@ export function ReportingChannelForm() {
         data?.data.email_destinatario &&
           formData.append('email_destinatario', data?.data.email_destinatario)
       }
-      formData.append('cco[]', 'angeloricardodev@gmail.com')
-
       if (documento?.length > 0) {
         for (let i = 0; i < documento.length; i++) {
           formData.append(`arquivo[]`, documento[i])
