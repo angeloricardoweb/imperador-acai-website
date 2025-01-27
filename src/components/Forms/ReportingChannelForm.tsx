@@ -36,30 +36,33 @@ export function ReportingChannelForm() {
     reset,
   } = useForm<FormData>({ resolver: zodResolver(registerSchema) })
 
-  async function postForm(data: FormData) {
+  async function postForm(dataForm: FormData) {
     setShowMessage(false)
 
     try {
       const formData = new FormData()
 
       formData.append('nome_remetente', 'Canal de denúncia')
-      formData.append('email_remetente', data.email)
+      formData.append('email_remetente', dataForm.email)
       formData.append(
         'conteudo_html',
         `<div>
             <h2 style="font-size:'20px'">Solicitação de contato via site<h2>
-            <p style="font-size:16px;font-weight: normal;"><strong>Nome:</strong> ${data.assunto}<p>
+            <p style="font-size:16px;font-weight: normal;"><strong>Nome:</strong> ${dataForm.assunto}<p>
             <p style="font-size:16px;font-weight: normal;"><strong>Usuário deseja ser informado:</strong> ${
               desejoSerInformado ? 'Sim' : 'Não'
             }<p>
-            <p style="font-size:16px;font-weight: normal;"><strong>E-mail:</strong> ${data.email || 'Não informado'}<p>
-            <p style="font-size:16px;font-weight: normal;"><strong>Descrição:</strong> ${data.descricao}<p>
+            <p style="font-size:16px;font-weight: normal;"><strong>E-mail:</strong> ${dataForm.email || 'Não informado'}<p>
+            <p style="font-size:16px;font-weight: normal;"><strong>Descrição:</strong> ${dataForm.descricao}<p>
             <div>`,
       )
       formData.append('assunto', 'Contato via Site')
       formData.append('nome_destinatario', 'Açaí Imperador')
-      formData.append('email_destinatario', data.email)
-      formData.append('cco', 'angeloricardodev@gmail.com')
+      {
+        data?.data.email_destinatario &&
+          formData.append('email_destinatario', data?.data.email_destinatario)
+      }
+      formData.append('cco[]', 'angeloricardodev@gmail.com')
 
       if (documento?.length > 0) {
         for (let i = 0; i < documento.length; i++) {
