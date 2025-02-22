@@ -39,7 +39,7 @@ export function ContactForm() {
   async function postForm(data: FormData) {
     const { assunto, name, email, telefone, estado, cidade, mensagem } = data
     sendEmailWithResend({
-      assunto,
+      assunto: 'Canal de denúncia',
       name,
       email,
       telefone,

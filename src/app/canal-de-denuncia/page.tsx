@@ -19,7 +19,9 @@ export default async function Page() {
         <div className="grid md:grid-cols-2 gap-10 py-10">
           <section>
             <ContentRichText data={data?.data.conteudo} />
-            <ReportingChannelForm />
+            <ReportingChannelForm
+              destinatario={data?.data.email_destinatario as string}
+            />
           </section>
           <section
             className="bg-cover bg-center bg-no-repeat rounded"

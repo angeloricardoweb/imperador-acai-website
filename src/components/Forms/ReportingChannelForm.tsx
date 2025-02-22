@@ -10,19 +10,23 @@ import toast from 'react-hot-toast'
 import useSWR from 'swr'
 import { getReportingPage } from '@/services/prismicData/getReportingPage'
 import ContentRichText from '../Prismic/ContentRichText'
-import axios from 'axios'
-const registerSchema = z.object({
+
+const formSchema = z.object({
   assunto: z.string().min(1, { message: 'Selecione um tipo de ocorrência' }),
   email: z.any(),
   descricao: z.string().min(10, { message: 'Mensagem muito curta' }),
 })
 
-type FormData = z.infer<typeof registerSchema>
-
-export function ReportingChannelForm() {
-  const [documento, setDocumento] = useState('')
+export function ReportingChannelForm({
+  destinatario,
+}: {
+  destinatario: string
+}) {
   const [desejoSerInformado, setDesejoSerInformado] = useState(false)
   const [showMessage, setShowMessage] = useState(false)
+  const [attachments, setAttachments] = useState<FileList | undefined>(
+    undefined,
+  )
 
   const { data } = useSWR('getReportingPage', async () => {
     const response = await getReportingPage()
@@ -34,56 +38,38 @@ export function ReportingChannelForm() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<FormData>({ resolver: zodResolver(registerSchema) })
+  } = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      assunto: '',
+      descricao: '',
+      email: '',
+    },
+  })
 
-  async function postForm(dataForm: FormData) {
+  async function postForm(values: z.infer<typeof formSchema>) {
     setShowMessage(false)
-
     try {
-      const formData = new FormData()
-
-      formData.append('nome_remetente', 'Canal de denúncia')
-      formData.append(
-        'email_remetente',
-        dataForm.email || 'egidesolutionsbel@gmail.com',
-      )
-      formData.append(
-        'conteudo_html',
-        `<div>
-            <h2 style="font-size:'20px'">Solicitação de contato via site<h2>
-            <p style="font-size:16px;font-weight: normal;"><strong>Nome:</strong> ${dataForm.assunto}<p>
-            <p style="font-size:16px;font-weight: normal;"><strong>Usuário deseja ser informado:</strong> ${
-              desejoSerInformado ? 'Sim' : 'Não'
-            }<p>
-            <p style="font-size:16px;font-weight: normal;"><strong>E-mail:</strong> ${dataForm.email || 'Não informado'}<p>
-            <p style="font-size:16px;font-weight: normal;"><strong>Descrição:</strong> ${dataForm.descricao}<p>
-            <div>`,
-      )
-      formData.append('assunto', 'Contato via Site')
-      formData.append('nome_destinatario', 'Açaí Imperador')
-      {
-        data?.data.email_destinatario &&
-          formData.append('email_destinatario', data?.data.email_destinatario)
-      }
-      if (documento?.length > 0) {
-        for (let i = 0; i < documento.length; i++) {
-          formData.append(`arquivo[]`, documento[i])
-        }
-      }
-
-      await axios.post(
-        'https://email-service.egidesolutions.com/api/send-email',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+      const response = await fetch('/api/canal-de-denuncia', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      )
+        body: JSON.stringify({
+          email_destinatario: destinatario,
+          assunto: values.assunto,
+          email: values.email,
+          descricao: values.descricao,
+          desejaSerInformado: desejoSerInformado,
+          attachments,
+        }),
+      })
+      console.log(response)
       toast.success('E-mail enviado com sucesso')
       setShowMessage(true)
       reset()
     } catch (error) {
+      console.log(error)
       toast.error('Erro ao enviar e-mail, tente novamente mais tarde')
     }
   }
@@ -131,12 +117,25 @@ export function ReportingChannelForm() {
           <label htmlFor="documento" className="b-label">
             Evidências ou Documentos (opcional)
           </label>
+
           <input
             type="file"
-            id="documento"
             multiple
-            onChange={(e) => setDocumento(e.target.value)}
-            className="b-input-file"
+            onChange={(e) => {
+              const files = e.target.files
+              if (files) {
+                Promise.all(
+                  Array.from(files).map(async (file) => ({
+                    filename: file.name,
+                    content: Buffer.from(await file.arrayBuffer()).toString(
+                      'base64',
+                    ),
+                  })),
+                ).then((filesArray) => {
+                  setAttachments(filesArray as any)
+                })
+              }
+            }}
           />
         </fieldset>
         <fieldset className="col-span-2">
