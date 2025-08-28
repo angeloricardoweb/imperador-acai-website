@@ -19,7 +19,17 @@ export default function SectionBenefits() {
 
   useEffect(() => {
     if (benefits?.data.beneficios) {
-      setBenefitActive(benefits?.data.beneficios[0])
+      // Obter o título da query params
+      const searchParams = new URLSearchParams(window.location.search)
+      const titulo = searchParams.get('titulo')
+
+      // Encontrar o benefício correspondente
+      const beneficioAtivo = titulo
+        ? benefits.data.beneficios.find((b) => b.titulo === titulo)
+        : benefits.data.beneficios[0]
+
+      // Definir o benefício ativo
+      setBenefitActive(beneficioAtivo)
     }
   }, [benefits])
 

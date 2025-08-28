@@ -143,6 +143,71 @@ export type BeneficiosDoAcaiDocument<Lang extends string = string> =
   >
 
 /**
+ * Content for canal_de_denuncia documents
+ */
+interface CanalDeDenunciaDocumentData {
+  /**
+   * Conteúdo field in *canal_de_denuncia*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: canal_de_denuncia.conteudo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  conteudo: prismic.RichTextField
+
+  /**
+   * Mensagem de confirmação field in *canal_de_denuncia*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: canal_de_denuncia.mensagem_de_confirmacao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  mensagem_de_confirmacao: prismic.RichTextField
+
+  /**
+   * Email Destinatário field in *canal_de_denuncia*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: canal_de_denuncia.email_destinatario
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email_destinatario: prismic.KeyTextField
+
+  /**
+   * Banner field in *canal_de_denuncia*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: canal_de_denuncia.banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  banner: prismic.ImageField<never>
+}
+
+/**
+ * canal_de_denuncia document from Prismic
+ *
+ * - **API ID**: `canal_de_denuncia`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CanalDeDenunciaDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CanalDeDenunciaDocumentData>,
+    'canal_de_denuncia',
+    Lang
+  >
+
+/**
  * Item in *Certificações → Itens*
  */
 export interface CertificacoesDocumentDataItensItem {
@@ -961,6 +1026,7 @@ export type SustentabilidadeDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | BannersDocument
   | BeneficiosDoAcaiDocument
+  | CanalDeDenunciaDocument
   | CertificacoesDocument
   | CompromissoSocialDocument
   | DadosERedesSociaisDocument
@@ -991,6 +1057,8 @@ declare module '@prismicio/client' {
       BeneficiosDoAcaiDocument,
       BeneficiosDoAcaiDocumentData,
       BeneficiosDoAcaiDocumentDataBeneficiosItem,
+      CanalDeDenunciaDocument,
+      CanalDeDenunciaDocumentData,
       CertificacoesDocument,
       CertificacoesDocumentData,
       CertificacoesDocumentDataItensItem,

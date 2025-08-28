@@ -116,6 +116,9 @@ export default function Footer() {
             <Link href="/#faq">
               <strong>{stringData(langData.FrequentlyAskedQuestions)} </strong>
             </Link>
+            <Link href="/canal-de-denuncia">
+              <strong>{stringData(langData.ReportingChannel)} </strong>
+            </Link>
           </div>
         </div>
       </Container>

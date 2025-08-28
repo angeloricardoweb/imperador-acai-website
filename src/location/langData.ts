@@ -128,4 +128,8 @@ export const langData = {
     'en-us': 'Health for your life',
     'pt-br': 'Saúde para sua vida',
   },
+  ReportingChannel: {
+    'en-us': 'Reporting Channel',
+    'pt-br': 'Canal de Denúncia',
+  },
 }
