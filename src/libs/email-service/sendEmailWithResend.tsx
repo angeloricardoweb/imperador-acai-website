@@ -36,7 +36,7 @@ export async function sendEmailWithResend({
 
   const response = await resend.emails.send({
     from: 'Novo Email <send@imperadoracai.com>',
-    to: ['angeloengcomp@gmail.com', 'douglas@produtosimperador.com.br'],
+    to: ['angeloengcomp@gmail.com', 'sacpa@produtosimperador.com.br'],
     subject: 'Novo contato via Site',
     html: emailHtml as string,
   })
