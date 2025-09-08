@@ -37,9 +37,9 @@ export async function sendEmailWithResend({
   // Determinar o destinatário baseado no assunto
   let toEmails: string[]
   if (assunto === 'Comercial/Vendas') {
-    toEmails = ['douglas@produtosimperador.com.br', 'angeloengcomp@gmail.com']
+    toEmails = ['douglas@produtosimperador.com.br']
   } else {
-    toEmails = ['sacpa@produtosimperador.com.br', 'angeloricardojs@gmail.com']
+    toEmails = ['sacpa@produtosimperador.com.br']
   }
 
   const response = await resend.emails.send({
