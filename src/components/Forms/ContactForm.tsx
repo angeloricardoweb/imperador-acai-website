@@ -6,7 +6,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '../Buttons/Button'
 import { normalizePhoneNumber } from './masks'
 import { ZodAllErrors } from './components/ZodAllErrors'
-import { sendEmailWithResend } from '@/libs/email-service/sendEmailWithResend'
 import toast from 'react-hot-toast'
 // import AWSVerifyEmail from '../EmailsTemplates/AWSVerifyEmail'
 
@@ -37,18 +36,35 @@ export function ContactForm() {
   const phoneValue = watch('telefone')
 
   async function postForm(data: FormData) {
-    const { name, email, telefone, estado, cidade, mensagem } = data
-    sendEmailWithResend({
-      assunto: 'Canal de denúncia',
-      name,
-      email,
-      telefone,
-      estado,
-      cidade,
-      mensagem,
-    })
-    reset()
-    toast.success('Mensagem enviada com sucesso!')
+    try {
+      const { assunto, name, email, telefone, estado, cidade, mensagem } = data
+
+      const response = await fetch('/api/contato', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          assunto,
+          name,
+          email,
+          telefone,
+          estado,
+          cidade,
+          mensagem,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Erro ao enviar mensagem')
+      }
+
+      reset()
+      toast.success('Mensagem enviada com sucesso!')
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error)
+      toast.error('Erro ao enviar mensagem. Tente novamente.')
+    }
   }
 
   useEffect(() => {
@@ -72,9 +88,7 @@ export function ContactForm() {
             style={errors.assunto && { border: '1px solid red' }}
           >
             <option defaultValue={''}>Selecione</option>
-            <option value="Quero ser um revendedor">
-              Quero ser um revendedor
-            </option>
+            <option value="Comercial/Vendas">Comercial/Vendas</option>
             <option value="Sugestão">Sugestão</option>
             <option value="Elogio">Elogio</option>
             <option value="Reclamação">Reclamação</option>

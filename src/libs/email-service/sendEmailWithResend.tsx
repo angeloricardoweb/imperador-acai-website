@@ -34,10 +34,18 @@ export async function sendEmailWithResend({
     />,
   )
 
+  // Determinar o destinatário baseado no assunto
+  let toEmails: string[]
+  if (assunto === 'Comercial/Vendas') {
+    toEmails = ['douglas@produtosimperador.com.br', 'angeloengcomp@gmail.com']
+  } else {
+    toEmails = ['sacpa@produtosimperador.com.br', 'angeloricardojs@gmail.com']
+  }
+
   const response = await resend.emails.send({
     from: 'Novo Email <send@imperadoracai.com>',
-    to: ['angeloengcomp@gmail.com', 'sacpa@produtosimperador.com.br'],
-    subject: 'Novo contato via Site',
+    to: toEmails,
+    subject: `Novo contato via Site - ${assunto}`,
     html: emailHtml as string,
   })
 
